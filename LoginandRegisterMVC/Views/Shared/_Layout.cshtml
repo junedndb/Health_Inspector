@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Login Demo</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="navbar-brand">
+            @*            @Html.ActionLink("Health Inspector", "Index", "Users", new { area = "" }, new { @class = "navbar-brand" })
+            *@
+            <h3 style="font-family:'Times New Roman'" class="navbar-brand">Health Inspector</h3>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarNav">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item">
+                    @if (Session["RoleLogin"] != null)
+                    {
+
+                        if (Session["RoleLogin"].Equals("Patient"))
+                        {
+                        <li class="nav-item ">@Html.ActionLink("Home", "Index", "Users", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
+                        <li class="navbar-right nav-item">@Html.ActionLink("Logout", "Logout", "Users", null, new { @class = "nav-link" })</li>
+                    }
+                    else if (Session["RoleLogin"].Equals("Doctor"))
+                    {
+                        <li class="nav-item ">@Html.ActionLink("DoctorDetails", "Index", "Doctor", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
+                        <li class="nav-item ">@Html.ActionLink("ClinicDetails", "Index", "Clinics", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
+                        <li class="navbar-right nav-item">@Html.ActionLink("Logout", "Logout", "Users", null, new { @class = "nav-link" })</li>
+                    }
+                    else if (Session["RoleLogin"].Equals("Admin"))
+                    {
+                        <li class="nav-item ">@Html.ActionLink("User Details", "Index", "Adminright", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
+                        <li class="nav-item ">@Html.ActionLink("Doctor Details", "Index", "Doctor", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
+                        <li class="nav-item ">@Html.ActionLink("Clinic Details", "Index", "Clinics", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
+                        <li class="navbar-right nav-item">@Html.ActionLink("Logout", "Logout", "Users", null, new { @class = "nav-link" })</li>
+                    }
+                }
+                </ul>
+            </div>
+        </nav>
+        <div class="container body-content">
+
+
+            <!-- Page content -->
+            <!-- Automatic Slideshow Images -->
+        @RenderBody()
+        <hr />
+        </div>
+        <footer class="text-center">
+            <p>&copy; @DateTime.Now.Year - LoginDemo All Rights Reserved</p>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+
+
+
+
+
+
+
+
+    </body>
+</html>

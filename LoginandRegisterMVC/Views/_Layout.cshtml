@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Login Demo</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="navbar-brand">
+            @*            @Html.ActionLink("Health Inspector", "Index", "Users", new { area = "" }, new { @class = "navbar-brand" })
+            *@
+            <h3 style="font-family:'Times New Roman'" class="navbar-brand">Health Inspector</h3>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarNav">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item">
+                    @if (Session["RoleLogin"] != null)
+                    {
+
+                        if (Session["RoleLogin"].Equals("Patient"))
+                        {
+                        <li class="nav-item ">@Html.ActionLink("Home", "Index", "Users", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
+                        <li class="navbar-right nav-item">@Html.ActionLink("Logout", "Logout", "Users", null, new { @class = "nav-link" })</li>
+                    }
+                    else if (Session["RoleLogin"].Equals("Doctor"))
+                    {
+                        <li class="nav-item ">@Html.ActionLink("DoctorDetails", "Index", "Doctor", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
+                        <li class="nav-item ">@Html.ActionLink("ClinicDetails", "Index", "Clinics", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
+                        <li class="navbar-right nav-item">@Html.ActionLink("Logout", "Logout", "Users", null, new { @class = "nav-link" })</li>
+                    }
+                    else if (Session["RoleLogin"].Equals("Admin"))
+                    {
+                        <li class="nav-item ">@Html.ActionLink("User Details", "Index", "Adminright", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
+                        <li class="nav-item ">@Html.ActionLink("Doctor Details", "Index", "Doctor", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
+                        <li class="nav-item ">@Html.ActionLink("Clinic Details", "Index", "Clinics", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
+                        <li class="navbar-right nav-item">@Html.ActionLink("Logout", "Logout", "Users", null, new { @class = "nav-link" })</li>
+                    }
+                }
+                </ul>
+            </div>
+        </nav>
+        <div class="">
+
+
+            <!-- Page content -->
+            <!-- Automatic Slideshow Images -->
+
+            <div class="mySlides fade">
+                <div class=" container ">
+                    <img src="~/img/newspaper-3.jpg" style="width:100%;height:600px" alt="Lights" style="width:100%">
+                    <div class=" overlay ">
+                        <div class="numbertext">1 / 5</div>
+                        <div class="text">
+                            <h2 class="w3-jumbo"><b>We had the best time playing at Venice Beach!</b></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class=" container ">
+                    <img src="~/img/nature.jpg" style="width:100%;height:600px" alt="Lights" style="width:100%">
+                    <div class=" overlay ">
+                        <div class="numbertext">2 / 5</div>
+                        <div class="text">
+                            <h2 class="w3-jumbo"><b>We had the best time playing at Venice Beach!</b></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class=" container ">
+                    <img src="~/img/newspaper-3.jpg" style="width:100%;height:600px" alt="Lights" style="width:100%">
+                    <div class=" overlay ">
+                        <div class="numbertext">3 / 5</div>
+                        <div class="text">
+                            <h2 class="w3-jumbo"><b>We had the best time playing at Venice Beach!</b></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class=" container ">
+                    <img src="~/img/nature.jpg" style="width:100%;height:600px" alt="Lights" style="width:100%">
+                    <div class=" overlay ">
+                        <div class="numbertext">4 / 5</div>
+                        <div class="text">
+                            <h2 class="w3-jumbo"><b>We had the best time playing at Venice Beach!</b></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mySlides fade">
+                <div class=" container ">
+                    <img src="~/img/newspaper-3.jpg" style="width:100%;height:600px" alt="Lights" style="width:100%">
+                    <div class=" overlay ">
+                        <div class="numbertext">5 / 5</div>
+                        <div class="text">
+                            <h2 class="w3-jumbo"><b>We had the best time playing at Venice Beach!</b></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br>
+
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+        @RenderBody()
+        <hr />
+        </div>
+        <footer class="text-center">
+            <p>&copy; @DateTime.Now.Year - LoginDemo All Rights Reserved</p>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+
+
+
+
+
+
+
+        <script>
+            // Automatic Slideshow - change image every 4 seconds
+
+            var slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dot");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) { slideIndex = 1 }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                setTimeout(showSlides, 4000); // Change image every 2 seconds
+            }
+
+            // Used to toggle the menu on small screens when clicking on the menu button
+            function myFunction() {
+                var x = document.getElementById("navDemo");
+                if (x.className.indexOf("w3-show") == -1) {
+                    x.className += " w3-show";
+                } else {
+                    x.className = x.className.replace(" w3-show", "");
+                }
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            var modal = document.getElementById('ticketModal');
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+
+
+    </body>
+</html>

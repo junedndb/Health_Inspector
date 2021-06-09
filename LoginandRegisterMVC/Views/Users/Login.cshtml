@@ -1,0 +1,76 @@
+﻿@model LoginandRegisterMVC.Models.User
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    //   @Html.AntiForgeryToken()
+    <div style="background:url(~/img/nature.jpg)">
+<div class="form-horizontal container-fluid">
+    <h2 class="text-center text-danger">LOGIN</h2>
+    <hr />
+
+    <img src="~/img/profile.png" alt="Sample Image" style="width:300px; border-radius:50%" /><br>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })<br />
+    <div class="form-group">
+        @Html.LabelFor(model => model.MailId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MailId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MailId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Role, new List<SelectListItem>
+            {
+                new SelectListItem{Text="Admin",Value="Admin"},
+                new SelectListItem{Text="Patient",Value="Patient"},
+                new SelectListItem{Text="Doctor",Value="Doctor"}
+            }, "Select Role", htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Login" class="btn btn-success" />
+            <p> </p>@Html.ActionLink("ForgotPassword", "ForgotPassword")
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <p> </p>@Html.ActionLink("Forgot Id", "ForgotId")
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @Html.ActionLink("SignUp", "Register")
+        </div>
+    </div>
+</div>
+        </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

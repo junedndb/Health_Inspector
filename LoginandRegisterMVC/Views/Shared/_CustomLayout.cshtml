@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+<title>Magazines</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="~/Content/Customcss.css">
+
+<style>
+</style>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+
+    <header class="w3-center">
+        <h1>My Website</h1>
+        <h4>created by <span style="font-size:30px;">Juned Shaikh</span></h4>
+    </header>
+
+
+
+
+    <div class="w3-bar w3-black w3-card">
+        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="/Home/Index" class="w3-bar-item w3-button w3-padding-large w3-large">HOME</a>
+        <a href="/Home/Books" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-large">Books</a>
+        <a href="/Home/Magazines" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-large">Magazines</a>
+        <a href="/Home/Newsletter" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-large">Newsletter</a>
+        <a href="/Home/Offers" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-large">Offers</a>
+        <a href="/Home/Contactus" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-large">Contactus</a>
+        <a href="javascript:void(0)" class="w3-padding-large w3-hover-green w3-hide-small w3-right w3-large"><i class="fa fa-search"></i></a>
+        <a href="javascript:void(0)" class="w3-padding-large w3-hover-green w3-hide-small w3-right w3-large"><i class="fa fa-shopping-cart w3-margin-right"></i></a>
+    </div>
+
+    <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium " style="margin-top:46px">
+        <a href="~/Views/Home/Index.cshtml" class="w3-bar-item w3-button w3-padding-large w3-large " onclick="myFunction()">Home</a>
+        <a href="~/Views/Home/About.cshtml" class="w3-bar-item w3-button w3-padding-large w3-large" onclick="myFunction()">Books</a>
+        <a href="~/Views/Home/Contact.cshtml" class="w3-bar-item w3-button w3-padding-large w3-large w3-green" onclick="myFunction()">Magazines</a>
+        <a href="newspaper.html" class="w3-bar-item w3-button w3-padding-large w3-large" onclick="myFunction()">Newsletter</a>
+        <a href="offer.html" class="w3-bar-item w3-button w3-padding-large w3-large" onclick="myFunction()">Offers</a>
+        <a href="contactus.html" class="w3-bar-item w3-button w3-padding-large w3-large" onclick="myFunction()">Contactus</a>
+    </div>
+
+
+    <!-- First Photo Grid-->
+    <!-- Push down content on small screens -->
+
+    @RenderBody()
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-32 w3-light-grey">
+        <div class="w3-row-padding">
+            <div class="w3-third">
+                <h3>FOOTER</h3>
+                <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">shaikh.com</a></p>
+            </div>
+
+            <div class="w3-third">
+                <h3>BLOG POSTS</h3>
+                <ul class="w3-ul w3-hoverable">
+                    <li class="w3-padding-16">
+                        <img src="~/img/magazines-1.jfif" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Lorem</span><br>
+                        <span>Sed mattis nunc</span>
+                    </li>
+                    <li class="w3-padding-16">
+                        <img src="~/img/magazines-2.jfif" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Ipsum</span><br>
+                        <span>Praes tinci sed</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="w3-third">
+                <h3>POPULAR TAGS</h3>
+                <p>
+                    <span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">London</span>
+                    <span class="w3-tag w3-grey w3-small w3-margin-bottom">IKEA</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">NORWAY</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">DIY</span>
+                    <span class="w3-tag w3-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Family</span>
+                    <span class="w3-tag w3-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Shopping</span>
+                    <span class="w3-tag w3-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Games</span>
+                </p>
+            </div>
+
+        </div>
+    </footer>
+    <footer class="w3-container w3-padding-64 w3-center w3-dark-grey w3-xlarge">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+        <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">Shaikh.com</a></p>
+    </footer>
+    <!-- End page content -->
+    
+
+    <script>
+        // Script to open and close sidebar
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+
+
+
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        var modal = document.getElementById('ticketModal');
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+    <script>
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        var modal = document.getElementById('ticketModal');
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
+

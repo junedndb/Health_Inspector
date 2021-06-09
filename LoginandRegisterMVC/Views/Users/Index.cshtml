@@ -1,0 +1,154 @@
+﻿@model IEnumerable<LoginandRegisterMVC.Models.Clinic>
+
+
+
+@{
+    ViewBag.Title = "Dashboard Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Dashboard Home @ViewBag.ADate</h2>
+
+Hello @Session["Role"]
+<div class="row">
+    <div class="col-md-4">
+        <img src="~/img/nature.jpg" alt="Sample Image" style="width:300px; height:300px; border-radius:10px;" />
+    </div>
+    <div class="col-md-4">
+        <img src="~/img/nature.jpg" alt="Sample Image" style="width:300px; height:300px; border-radius:10px;" />
+    </div>
+    <div class="col-md-4">
+        <img src="~/img/nature.jpg" alt="Sample Image" style="width:300px; height:300px; border-radius:10px;" />
+    </div>
+</div>
+<br>
+
+
+@if (!IsPost)
+{
+    @Html.Partial("SearchView")
+
+}
+else
+{
+
+
+
+
+    @*@using (Html.BeginForm("Index", "Users", FormMethod.Post))
+        {
+            //   @Html.AntiForgeryToken()
+
+            <div class="form-horizontal container-fluid">
+                <h2 class="text-center text-danger">Search</h2>
+                <hr />
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClinicName, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ClinicName, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DoctorName, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DoctorName, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Facilities, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Facilities, new { htmlAttributes = new { @class = "form-control" } })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Search" class="btn btn-success" />
+
+                    </div>
+                </div>
+
+            </div>
+    *@
+
+
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClinicName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Facilities)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClinicTiming)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th></th>
+        </tr>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClinicName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoctorName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoctorId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Facilities)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClinicTiming)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Book Appointment", "BookAppointment", "Appointments", new { did = item.DoctorId, uid = Session["Id"] }, null) |
+                    </td>
+                    @*<td>
+                            @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
+                            @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
+                        </td>*@
+                </tr>
+            }
+        }
+        else
+        {
+            <p>No Record Found</p>
+        }
+
+    </table>
+
+    <p>
+        @Html.ActionLink("Back to search", "Index")
+    </p>
+    <p>
+        @Html.ActionLink("Take Appointment", "Create", "Appointments")
+    </p>
+}
+@Html.ActionLink("My Appointment", "Index", "Appointments", new { id = Session["Id"] }, null) |

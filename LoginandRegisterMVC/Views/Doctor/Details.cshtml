@@ -1,0 +1,65 @@
+﻿@model LoginandRegisterMVC.Models.DoctorDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DoctorDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DoctorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoctorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specialization)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specialization)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalClinic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalClinic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Avalaibility)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Avalaibility)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Session["Id"] }) |
+@*    @Html.ActionLink("Back to List", "Index", new { id = Model.Id })
+*@    @if (Session["Role"].Equals("Admin"))
+    {
+        <div>
+            @Html.ActionLink("Back to List", "Index", new { id = Session["Id"] })
+        </div>
+
+    }
+    else
+    {
+        <div>
+            @Html.ActionLink("Back to List", "Index", new { id = Session["Id"] })
+        </div>
+
+    }
+
+</p>

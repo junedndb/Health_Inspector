@@ -1,0 +1,88 @@
+﻿@model IEnumerable<LoginandRegisterMVC.Models.Appointment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Appointment List</h2>
+@if (!Session["Role"].Equals("Doctor") && !Session["Role"].Equals("Admin"))
+{
+    <p>
+        @Html.ActionLink("Create New Appointment", "Create")
+    </p>
+
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ClinicName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DoctorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DoctorId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClinicCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfAppointment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatientName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatientId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClinicName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClinicCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfAppointment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+
+
+
+            <td>
+                @*        @Html.ActionLink("Edit", "Edit", new { id = item.AppointmentId, uid = item.DoctorId }) |
+                *@        @Html.ActionLink("Delete", "Delete", new { id = item.AppointmentId, uid = Session["Id"] })
+                @Html.ActionLink("Details", "Details", new { id = item.AppointmentId, uid = Session["Id"] }) |
+                @if (Session["Role"].Equals("Doctor"))
+                {
+                    @Html.ActionLink("Approve", "Approve", new { id = item.AppointmentId, uid = item.DoctorId })
+
+                }
+            </td>
+        </tr>
+    }
+
+</table>
