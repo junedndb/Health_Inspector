@@ -5,10 +5,23 @@
 @{
     ViewBag.Title = "Dashboard Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
-
-<h2>Dashboard Home @ViewBag.ADate</h2>
-
+<h2 class="card bg-secondary text-white text-center"style="padding:10px;margin:10px">Appointment Reminder</h2>
+<div class="card bg-secondary text-white text-center" >
+    @foreach (var a in ViewBag.AName)
+    {
+        string span = (DateTime.Parse(a.DateOfAppointment) - DateTime.Today).TotalDays.ToString();
+        int check = Convert.ToInt32(span);
+        if (a.Status.Equals("Approve"))
+        {
+            if (check <= 5 && check > 0)
+            {
+            <p style="padding:5px;margin:5px">@check Days left to Dr.@a.DoctorName appointment</p>
+            }
+        }
+    }
+</div>
 Hello @Session["Role"]
 <div class="row">
     <div class="col-md-4">
