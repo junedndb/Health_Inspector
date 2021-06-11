@@ -55,7 +55,7 @@
             </td>
         </tr>
         <p>
-            @Html.ActionLink("Appointments List of "+item.DoctorName, "Index", "Appointments", new { id = item.Id }, null)
+            @Html.ActionLink("Appointments List of "+item.DoctorName, "Index", "Appointments", new { id = Session["Id"] }, null)
         </p>
     }
 

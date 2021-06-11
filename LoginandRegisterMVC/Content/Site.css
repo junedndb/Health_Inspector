@@ -13,13 +13,13 @@ body {
     background-image: url(/img/nature.jpg);
 }
     /* Set padding to keep content from hitting the edges */
-    .body-content {
-    max-width: 70%;
+/*    .body-content {
+    max-width: 100%;
     margin-top: 30px;
     background-color: rgba(236,239,241,1);
     border-radius: 10px;
 }
-
+*/
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 

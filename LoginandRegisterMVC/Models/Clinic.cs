@@ -28,6 +28,11 @@ namespace LoginandRegisterMVC.Models
         public int DoctorId { get; set; }
 
         [Required]
+        [Display(Name = "Doctor Specialization")]
+        public string Specialization { get; set; }
+
+
+        [Required]
         [Display(Name = "Clinic Facilities")]
         public string Facilities { get; set; }
 
