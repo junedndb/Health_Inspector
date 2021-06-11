@@ -16,6 +16,7 @@ namespace LoginandRegisterMVC.Models
 
         public DbSet<DoctorDetail> DoctorDetails { get; set; }
         public DbSet<Clinic> Clinics { get; set; }
+        public DbSet<ClinicFacilities> ClinicFacilitiess { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
     }
 }

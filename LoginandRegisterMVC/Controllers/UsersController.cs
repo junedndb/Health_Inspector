@@ -20,7 +20,7 @@ namespace LoginandRegisterMVC.Controllers
         [Authorize]
         public ActionResult Index(int? id)
         {
-            int num = db.Appointments.Where(a => a.PatientId == id).Count();
+/*            int num = db.Appointments.Where(a => a.PatientId == id).Count();
 
             List<Appointment> name = new List<Appointment>();
 
@@ -32,7 +32,7 @@ namespace LoginandRegisterMVC.Controllers
                 }
 
             ViewBag.AName = name;
-            Session["Id"] = id;
+*/            Session["Id"] = id;
 /*            var data = (from a in db.Clinics
                         select a).ToList();
 */            return View();

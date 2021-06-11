@@ -7,10 +7,10 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
- //   @Html.AntiForgeryToken()
-    
+    //   @Html.AntiForgeryToken()
+
     <div class="form-horizontal">
         <h4>Clinic</h4>
         <hr />
@@ -27,8 +27,10 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DoctorName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-@*                @Html.EditorFor(model => model.DoctorName, new { htmlAttributes = new { @class = "form-control" } })
-*@                @Html.DropDownList("DoctorName", null, htmlAttributes: new { @class = "form-control" })
+                @*                                 @Html.TextBoxFor(model => model.DoctorName, new { @Value = ViewBag.DoctorName })
+                *@@*                                @Html.DropDownList("DoctorName", null, htmlAttributes: new { @class = "form-control" })
+                *@
+                @Html.EditorFor(model => model.DoctorName, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.DoctorName, @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.DoctorName, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -36,8 +38,10 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DoctorId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-@*                @Html.EditorFor(model => model.DoctorId, new { htmlAttributes = new { @class = "form-control" } })
-*@                @Html.DropDownList("DoctorId", null, htmlAttributes: new { @class = "form-control" })
+                @*                @Html.EditorFor(model => model.DoctorId, new { htmlAttributes = new { @class = "form-control" } })
+                *@
+                @*                @Html.DropDownList("DoctorId", null, htmlAttributes: new { @class = "form-control" })
+                *@                @Html.EditorFor(model => model.DoctorId, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.DoctorId, @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.DoctorId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -45,9 +49,20 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Facilities, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-@*                @Html.EditorFor(model => model.Facilities, new { htmlAttributes = new { @class = "form-control" } })
-*@            
-                
+                @*                @Html.EditorFor(model => model.Facilities, new { htmlAttributes = new { @class = "form-control" } })
+                *@
+
+                @foreach (var facility in ViewBag.Facility)
+                {
+                    <div style="padding-right:15px;margin-left:200px">
+                        <input id="@facility.FacilityName" type="checkbox" name="Facilities" value="@facility.FacilityName" />
+                        <label for="@facility.FacilityName">
+                            @facility.FacilityName
+                        </label>
+                    </div>
+
+                }
+
                 @Html.ValidationMessageFor(model => model.Facilities, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -102,16 +117,37 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-success" />
+                <input type="submit" value="Create" onclick="updatemark()" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
 @*<div>
-    @Html.ActionLink("Back to List", "Index","Clinics",new { id = Model.DoctorId},null)
-</div>
+        @Html.ActionLink("Back to List", "Index","Clinics",new { id = Model.DoctorId},null)
+    </div>
 *@
+
+
+<script>
+
+    function updatemark(arg) {
+        var abc = ""
+        //Iterating the collection of checkboxes which checked marked
+        $('input[type=checkbox]').each(function () {
+            if (this.checked) {
+                abc = abc + $(this).val() + ","
+                //assign set value to hidden field
+                $('#FacilityName').val(abc);
+            }
+        });
+
+    }
+</script>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+
+

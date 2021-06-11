@@ -72,7 +72,8 @@ namespace LoginandRegisterMVC.Controllers
                 PatientName = udata.firstname +" "+udata.lastname,
                 PatientId = udata.UserId,
                 Status = "Pending",
-                DateOfAppointment = "2021-06-05"
+                DateOfAppointment = "2021-06-05",
+                TimeOfAppointment = "10:10 am"
             };
             db.Appointments.Add(appointment);
             db.SaveChanges();
@@ -107,6 +108,7 @@ namespace LoginandRegisterMVC.Controllers
             var last = (from a in db.Appointments select a).OrderByDescending(a => a.AppointmentId).First().AppointmentId;
             var app = (from a in db.Appointments where a.AppointmentId == last select a).FirstOrDefault();
             app.DateOfAppointment = appointment.DateOfAppointment;
+            app.TimeOfAppointment = appointment.TimeOfAppointment;
 
             db.SaveChanges();
 
