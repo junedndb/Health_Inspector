@@ -20,19 +20,21 @@ namespace LoginandRegisterMVC.Controllers
         [Authorize]
         public ActionResult Index(int? id)
         {
-/*            int num = db.Appointments.Where(a => a.PatientId == id).Count();
+            Session["Id"] = id;
+            var num = db.Appointments.Where(a => a.PatientId == id).FirstOrDefault();
 
-            List<Appointment> name = new List<Appointment>();
+            if (num != null)
+            {
+                List<Appointment> name = new List<Appointment>();
 
-
-            foreach (var a in db.Appointments.Where(a => a.PatientId == id))
+                foreach (var a in db.Appointments.Where(a => a.PatientId == id))
                 {
                     string span = (DateTime.Parse(a.DateOfAppointment) - DateTime.Today).TotalDays.ToString();
                     name.Add(a);
                 }
 
-            ViewBag.AName = name;
-*/            Session["Id"] = id;
+                ViewBag.AName = name;
+            }
 /*            var data = (from a in db.Clinics
                         select a).ToList();
 */            return View();
@@ -44,7 +46,8 @@ namespace LoginandRegisterMVC.Controllers
         {
 
             var data = (from a in db.Clinics
-                        where a.Facilities == clinic.Facilities
+                        where a.Specialization == clinic.Specialization &&
+                        a.City == clinic.City
                         select a).ToList();
             
                         return View(data.ToList());

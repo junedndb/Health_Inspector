@@ -197,6 +197,10 @@
     <Compile Include="Migrations\202106110728577_initial14.Designer.cs">
       <DependentUpon>202106110728577_initial14.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106111019255_initial15.cs" />
+    <Compile Include="Migrations\202106111019255_initial15.Designer.cs">
+      <DependentUpon>202106111019255_initial15.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Clinic.cs" />
@@ -449,6 +453,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106110728577_initial14.resx">
       <DependentUpon>202106110728577_initial14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106111019255_initial15.resx">
+      <DependentUpon>202106111019255_initial15.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
