@@ -1,4 +1,5 @@
-﻿@model IEnumerable<LoginandRegisterMVC.Models.Clinic>
+﻿<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+@model IEnumerable<LoginandRegisterMVC.Models.Clinic>
 
 
 
@@ -7,35 +8,51 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
-<h2 class="card bg-secondary text-white text-center"style="padding:10px;margin:10px">Appointment Reminder</h2>
-<div class="card bg-secondary text-white text-center" >
-    @foreach (var a in ViewBag.AName)
+
+<div class="w3-display-container w3-text-white">
+    <img src="~/img/hhc.jpg" alt="Sample Image" style="width:100%;  border-radius:10px;" />
+    <div class=" overlay ">
+        <div class="text">
+            <h2 class="w3-jumbo" style="font-family:'Times New Roman';"><b>Health Inspector</b></h2>
+        </div>
+    </div>
+</div>
+
+@*<div class="row">
+    <img src="~/img/hhc.jpg" alt="Sample Image" style="width:100%;  border-radius:10px;" />
+</div>
+*@<div class="card bg-secondary text-white text-center">
+    @if (ViewBag.AName != null)
     {
-        string span = (DateTime.Parse(a.DateOfAppointment) - DateTime.Today).TotalDays.ToString();
-        int check = Convert.ToInt32(span);
-        if (a.Status.Equals("Approve"))
+@*        <h2 class="card bg-secondary text-white text-center" style="padding:10px;margin:10px">Appointment Reminder</h2>
+*@        foreach (var a in ViewBag.AName)
         {
-            if (check <= 5 && check > 0)
+            string span = (DateTime.Parse(a.DateOfAppointment) - DateTime.Today).TotalDays.ToString();
+            int check = Convert.ToInt32(span);
+            if (a.Status.Equals("Approve"))
             {
-            <p style="padding:5px;margin:5px">@check Days left to Dr.@a.DoctorName appointment</p>
+                if (check <= 5 && check > 0)
+                {
+                    <p style="padding:5px;margin:5px">@check Days left to Dr.@a.DoctorName appointment</p>
+                }
             }
         }
     }
 </div>
-Hello @Session["Role"]
-<div class="row">
-    <div class="col-md-4">
-        <img src="~/img/nature.jpg" alt="Sample Image" style="width:300px; height:300px; border-radius:10px;" />
+@*Hello @Session["Role"]
+*@@*<div class="row">
+        <div class="col-md-4">
+            <img src="~/img/nature.jpg" alt="Sample Image" style="width:300px; height:300px; border-radius:10px;" />
+        </div>
+        <div class="col-md-4">
+            <img src="~/img/nature.jpg" alt="Sample Image" style="width:300px; height:300px; border-radius:10px;" />
+        </div>
+        <div class="col-md-4">
+            <img src="~/img/nature.jpg" alt="Sample Image" style="width:300px; height:300px; border-radius:10px;" />
+        </div>
     </div>
-    <div class="col-md-4">
-        <img src="~/img/nature.jpg" alt="Sample Image" style="width:300px; height:300px; border-radius:10px;" />
-    </div>
-    <div class="col-md-4">
-        <img src="~/img/nature.jpg" alt="Sample Image" style="width:300px; height:300px; border-radius:10px;" />
-    </div>
-</div>
-<br>
-
+    <br>
+*@
 
 @if (!IsPost)
 {
@@ -159,9 +176,6 @@ else
 
     <p>
         @Html.ActionLink("Back to search", "Index")
-    </p>
-    <p>
-        @Html.ActionLink("Take Appointment", "Create", "Appointments")
     </p>
 }
 @Html.ActionLink("My Appointment", "Index", "Appointments", new { id = Session["Id"] }, null) |

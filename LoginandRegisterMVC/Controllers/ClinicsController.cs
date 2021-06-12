@@ -59,8 +59,13 @@ namespace LoginandRegisterMVC.Controllers
             var check = (from a in db.Users where a.UserId == id select a).FirstOrDefault();
             Session["Role"] = check.Role;
 
-            ViewBag.DoctorId = new SelectList(db.DoctorDetails.Where(a => a.DoctorId == id), "DoctorId", "DoctorId");
-            ViewBag.DoctorName = new SelectList(db.DoctorDetails.Where(a => a.DoctorId == id), "DoctorName", "DoctorName");
+/*            ViewBag.DoctorId = new SelectList(db.DoctorDetails.Where(a => a.DoctorId == id), "DoctorId", "DoctorId");
+*/            /*            ViewBag.DoctorName = new SelectList(db.DoctorDetails.Where(a => a.DoctorId == id), "DoctorName", "DoctorName");
+            */
+            ViewBag.DoctorId = (from a in db.DoctorDetails where a.DoctorId == id select a.DoctorId).FirstOrDefault();
+            
+            ViewBag.DoctorName = (from a in db.DoctorDetails where a.DoctorId == id select a.DoctorName).FirstOrDefault();
+            ViewBag.Facility = db.ClinicFacilitiess.ToList();
 
             return View();
         }

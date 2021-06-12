@@ -36,9 +36,15 @@ namespace LoginandRegisterMVC.Models
         [DataType(DataType.Date)]
         public string DateOfAppointment { get; set; }
 
-/*        [Required]
-        [Display(Name = "Patient Name")]
-*/        public string PatientName { get; set; }
+        [Required]
+        [Display(Name = "Time of Appointment")]
+        [DataType(DataType.Time)]
+        public string TimeOfAppointment { get; set; }
+
+        /*        [Required]
+                [Display(Name = "Patient Name")]
+        */
+        public string PatientName { get; set; }
 
 /*        [Required]
         [Display(Name = "Patient Id")]

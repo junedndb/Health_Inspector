@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
-<body>
+<body style="background:url(~/img/book-4.jpg)">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="navbar-brand">
             @*            @Html.ActionLink("Health Inspector", "Index", "Users", new { area = "" }, new { @class = "navbar-brand" })
@@ -48,14 +48,13 @@
         </nav>
         <div class="container body-content">
 
-
             <!-- Page content -->
             <!-- Automatic Slideshow Images -->
         @RenderBody()
         <hr />
         </div>
         <footer class="text-center">
-            <p>&copy; @DateTime.Now.Year - LoginDemo All Rights Reserved</p>
+            <p>&copy; @DateTime.Now.Year - Health Inspector All Rights Reserved</p>
         </footer>
 
         @Scripts.Render("~/bundles/jquery")

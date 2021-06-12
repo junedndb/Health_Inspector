@@ -94,8 +94,8 @@
     </dl>
 
     @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
+@*        @Html.AntiForgeryToken()
+*@
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-success" /> |
             @Html.ActionLink("Back to List", "Index",new { id = Session["Id"] })
