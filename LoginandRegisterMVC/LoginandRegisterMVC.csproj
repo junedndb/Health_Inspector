@@ -138,41 +138,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106041335177_initial.cs" />
-    <Compile Include="Migrations\202106041335177_initial.designer.cs">
-      <DependentUpon>202106041335177_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106041352123_initial1.cs" />
-    <Compile Include="Migrations\202106041352123_initial1.designer.cs">
-      <DependentUpon>202106041352123_initial1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106041441530_initial2.cs" />
-    <Compile Include="Migrations\202106041441530_initial2.designer.cs">
-      <DependentUpon>202106041441530_initial2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106050644423_initial3.cs" />
-    <Compile Include="Migrations\202106050644423_initial3.designer.cs">
-      <DependentUpon>202106050644423_initial3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106050721577_initial4.cs" />
-    <Compile Include="Migrations\202106050721577_initial4.designer.cs">
-      <DependentUpon>202106050721577_initial4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106050735152_initial5.cs" />
-    <Compile Include="Migrations\202106050735152_initial5.designer.cs">
-      <DependentUpon>202106050735152_initial5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106050753253_initial6.cs" />
-    <Compile Include="Migrations\202106050753253_initial6.designer.cs">
-      <DependentUpon>202106050753253_initial6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106051247237_initial7.cs" />
-    <Compile Include="Migrations\202106051247237_initial7.designer.cs">
-      <DependentUpon>202106051247237_initial7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106060525390_initial8.cs" />
-    <Compile Include="Migrations\202106060525390_initial8.designer.cs">
-      <DependentUpon>202106060525390_initial8.cs</DependentUpon>
+    <Compile Include="Migrations\202106120945323_initanmodel.cs" />
+    <Compile Include="Migrations\202106120945323_initanmodel.designer.cs">
+      <DependentUpon>202106120945323_initanmodel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -379,32 +347,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106041335177_initial.resx">
-      <DependentUpon>202106041335177_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106041352123_initial1.resx">
-      <DependentUpon>202106041352123_initial1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106041441530_initial2.resx">
-      <DependentUpon>202106041441530_initial2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106050644423_initial3.resx">
-      <DependentUpon>202106050644423_initial3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106050721577_initial4.resx">
-      <DependentUpon>202106050721577_initial4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106050735152_initial5.resx">
-      <DependentUpon>202106050735152_initial5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106050753253_initial6.resx">
-      <DependentUpon>202106050753253_initial6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106051247237_initial7.resx">
-      <DependentUpon>202106051247237_initial7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106060525390_initial8.resx">
-      <DependentUpon>202106060525390_initial8.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106120945323_initanmodel.resx">
+      <DependentUpon>202106120945323_initanmodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
