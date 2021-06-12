@@ -228,6 +228,8 @@
     <Content Include="img\books-1.jfif" />
     <Content Include="img\books-2.jfif" />
     <Content Include="img\ch.jpg" />
+    <Content Include="img\hc1.jpg" />
+    <Content Include="img\hhc.jpg" />
     <Content Include="img\magazines-1.jfif" />
     <Content Include="img\magazines-2.jfif" />
     <Content Include="img\nature.jpg" />
