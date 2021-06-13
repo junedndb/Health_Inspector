@@ -53,12 +53,13 @@
                 </ul>
             </div>
         </nav>
+
         <div class="container body-content">
 
             <!-- Page content -->
             <!-- Automatic Slideshow Images -->
-        @RenderBody()
-        <hr />
+            @RenderBody()
+            <hr />
         </div>
         <footer class="text-center">
             <p>&copy; @DateTime.Now.Year - Health Inspector All Rights Reserved</p>
@@ -67,12 +68,6 @@
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
-
-
-
-
-
-
 
 
     </body>

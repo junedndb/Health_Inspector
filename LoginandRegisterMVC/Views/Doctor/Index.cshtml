@@ -1,18 +1,30 @@
-﻿@model IEnumerable<LoginandRegisterMVC.Models.DoctorDetail>
+﻿<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+@model IEnumerable<LoginandRegisterMVC.Models.DoctorDetail>
 
 @{
     ViewBag.Title = "Index";
 }
 
+<br>
+<div class="w3-display-container w3-text-white">
+    <img src="~/img/hhc.jpg" alt="Sample Image" style="width:100%;  border-radius:10px;" />
+    <div class=" overlay ">
+        <div class="text">
+            <h2 class="w3-jumbo" style="font-family:'Times New Roman';"><b>Health Inspector</b></h2>
+        </div>
+    </div>
+</div>
+<br/>
+
 <h2>Add New Doctor</h2>
 <p>@Session["Available"]</p>
 
-        @if (Session["Available"].Equals("No"))
-        {
-            <p>
-                @Html.ActionLink("Create New", "Create", new { id = Session["Id"] })
-            </p>
-        }
+@if (Session["Available"].Equals("No"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create", new { id = Session["Id"] })
+    </p>
+}
 @*<p>
         @Html.ActionLink("Create New", "Create")
     </p>
@@ -55,7 +67,7 @@
             </td>
         </tr>
         <p>
-            @Html.ActionLink("Appointments List of "+item.DoctorName, "Index", "Appointments", new { id = Session["Id"] }, null)
+            @Html.ActionLink("Appointments List of " + item.DoctorName, "Index", "Appointments", new { id = Session["Id"] }, null)
         </p>
     }
 
