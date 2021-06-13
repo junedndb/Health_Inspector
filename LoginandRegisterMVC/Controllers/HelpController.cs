@@ -17,13 +17,13 @@ namespace LoginandRegisterMVC.Controllers
             return View();
         }
 
+
         [HttpGet]
         public ActionResult HelpAsk()
         {
             Help help = new Help();
             return View(help);
         }
-
 
         [HttpPost]
         public ActionResult HelpAsk(Help help)

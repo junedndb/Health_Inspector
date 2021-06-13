@@ -101,6 +101,9 @@ namespace LoginandRegisterMVC.Controllers
                 ViewBag.ExerciseRecommendation = "Strength training keeps your muscles strong and can help you build mass. Muscle actually weighs more than fat, so if you're interested in gaining weight, strength training is a great way to do so, and it will make you look less gaunt. Try exercise machines such as a leg press or rowing machine at the gym, or lift weights daily.";
                 dietRecommendation.Recommendation = ViewBag.Weightcategory + " \n" + ViewBag.DietRecommendation + "\n" + ViewBag.ExerciseRecommendation;
             }
+           
+            
+            dietRecommendation.UserId = (int)HttpContext.Session["UserId"];
 
             ViewBag.bMi = Math.Round(bMI.BMIResult, 2);
             //string myVar = (int)HttpContext.Session["UserId"];
