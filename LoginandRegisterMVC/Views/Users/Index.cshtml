@@ -15,8 +15,8 @@
 
 @if (ViewBag.AName != null)
 {
-    @*        <h2 class="card bg-secondary text-white text-center" style="padding:10px;margin:10px">Appointment Reminder</h2>
-    *@ foreach (var a in ViewBag.AName)
+    
+    foreach (var a in ViewBag.AName)
     {
         string span = (DateTime.Parse(a.DateOfAppointment) - DateTime.Today).TotalDays.ToString();
         int check = Convert.ToInt32(span);
