@@ -8,10 +8,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
-<center>
-    <h6><span style="background-color: blanchedalmond" id="helthtipTitle"></span></h6>
-    <h6><span style="background-color: blanchedalmond" id="helthtip"></span></h6>
+<br>
+<center class="card bg-secondary text-white text-center" style="font-family:'Times New Roman'">
+    <h3><span  id="helthtipTitle"></span></h3>
+    <h6><span  id="helthtip"></span></h6>
 </center>
+<br>
 <div class="w3-display-container w3-text-white">
     <img src="~/img/hhc.jpg" alt="Sample Image" style="width:100%;  border-radius:10px;" />
     <div class=" overlay ">
@@ -27,8 +29,8 @@
 *@<div class="card bg-secondary text-white text-center">
     @if (ViewBag.AName != null)
     {
-    @*        <h2 class="card bg-secondary text-white text-center" style="padding:10px;margin:10px">Appointment Reminder</h2>
-    *@ foreach (var a in ViewBag.AName)
+        @*        <h2 class="card bg-secondary text-white text-center" style="padding:10px;margin:10px">Appointment Reminder</h2>
+        *@ foreach (var a in ViewBag.AName)
         {
             string span = (DateTime.Parse(a.DateOfAppointment) - DateTime.Today).TotalDays.ToString();
             int check = Convert.ToInt32(span);
@@ -36,7 +38,7 @@
             {
                 if (check <= 5 && check > 0)
                 {
-    <p style="padding:5px;margin:5px">@check Days left to Dr.@a.DoctorName appointment</p>
+                    <p style="padding:5px;margin:5px">@check Days left to Dr.@a.DoctorName appointment</p>
                 }
             }
         }
@@ -59,7 +61,7 @@
 
 @if (!IsPost)
 {
-@Html.Partial("SearchView")
+    @Html.Partial("SearchView")
 
 }
 else
@@ -68,126 +70,127 @@ else
 
 
 
-@*@using (Html.BeginForm("Index", "Users", FormMethod.Post))
-    {
-        //   @Html.AntiForgeryToken()
+    @*@using (Html.BeginForm("Index", "Users", FormMethod.Post))
+        {
+            //   @Html.AntiForgeryToken()
 
-        <div class="form-horizontal container-fluid">
-            <h2 class="text-center text-danger">Search</h2>
-            <hr />
+            <div class="form-horizontal container-fluid">
+                <h2 class="text-center text-danger">Search</h2>
+                <hr />
 
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.ClinicName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClinicName, htmlAttributes: new { @class = "control-label col-md-2" })
 
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ClinicName, new { htmlAttributes = new { @class = "form-control" } })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ClinicName, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.DoctorName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DoctorName, htmlAttributes: new { @class = "control-label col-md-2" })
 
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.DoctorName, new { htmlAttributes = new { @class = "form-control" } })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DoctorName, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.Facilities, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Facilities, htmlAttributes: new { @class = "control-label col-md-2" })
 
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Facilities, new { htmlAttributes = new { @class = "form-control" } })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Facilities, new { htmlAttributes = new { @class = "form-control" } })
 
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Search" class="btn btn-success" />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Search" class="btn btn-success" />
 
+                    </div>
                 </div>
+
             </div>
-
-        </div>
-*@
+    *@
 
 
 
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ClinicName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DoctorName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DoctorId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Facilities)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClinicTiming)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th></th>
-    </tr>
-    @if (Model != null)
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClinicName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Facilities)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClinicTiming)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th></th>
+        </tr>
+        @if (Model != null)
         {
             foreach (var item in Model)
             {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClinicName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DoctorName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DoctorId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Facilities)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClinicTiming)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>
-        <td>
-            @Html.ActionLink("Book Appointment", "BookAppointment", "Appointments", new { did = item.DoctorId, uid = Session["Id"] }, null) |
-        </td>
-        @*<td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
-            </td>*@
-    </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClinicName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoctorName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoctorId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Facilities)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClinicTiming)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Book Appointment", "BookAppointment", "Appointments", new { did = item.DoctorId, uid = Session["Id"] }, null) |
+                    </td>
+                    @*<td>
+                            @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
+                            @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
+                        </td>*@
+                </tr>
             }
         }
         else
         {
-    <p>No Record Found</p>
+            <p>No Record Found</p>
         }
 
-</table>
+    </table>
 
-<p>
-    @Html.ActionLink("Back to search", "Index")
-</p>
+    <p>
+        @Html.ActionLink("Back to search", "Index")
+    </p>
 }
 @Html.ActionLink("My Appointment", "Index", "Appointments", new { id = Session["Id"] }, null) |
+<br>
+<br>
 
 
 
-
-
-<table border="0" width="100%" bgcolor="#E8E8E8" cellspacing="0" cellpadding="0">
+<div class="card bg-secondary text-white text-center">
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
     <tr>
         <td width="100%">
             <script>
@@ -238,6 +241,83 @@ else
         </td>
     </tr>
 </table>
+</div>
+
+
+
+<!-- Topic Cards -->
+<div id="cards_landscape_wrap-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <a href="/Help/HelpAsk">
+                    <div class="card-flyer">
+                        <div class="text-box">
+                            <div class="image-box">
+@*                                <img src="https://cdn.pixabay.com/photo/2018/03/30/15/11/deer-3275594_960_720.jpg" alt="" />
+*@                                <img src="~/img/help.jpg" alt="" />
+                            </div>
+                            <div class="text-container">
+                                <h6>Help</h6>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <a href="/BMIAndRecommendations/ADD">
+                    <div class="card-flyer">
+                        <div class="text-box">
+                            <div class="image-box">
+@*                                <img src="https://cdn.pixabay.com/photo/2018/04/09/19/55/low-poly-3305284_960_720.jpg" alt="" />
+*@                                <img src="~/img/newspaper-3.jpg" alt="" />
+                            </div>
+                            <div class="text-container">
+                                <h6>Get BMI</h6>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <a href="/BMIAndRecommendations/DietRecommendation">
+                    <div class="card-flyer">
+                        <div class="text-box">
+                            <div class="image-box">
+@*                                <img src="https://cdn.pixabay.com/photo/2018/04/06/13/46/poly-3295856_960_720.png" alt="" />
+*@                                <img src="~/img/diet.jpg" alt="Diet" />
+                            </div>
+
+                            <div class="text-container">
+                                <h6>Get Diet Recommendation</h6>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <a href="">
+                    <div class="card-flyer">
+                        <div class="text-box">
+                            <div class="image-box">
+                                <img src="~/img/feedback.jpg" alt="" />
+@*                                <img src="https://cdn.pixabay.com/photo/2018/03/30/15/12/dog-3275593_960_720.jpg" alt="" />
+*@                            </div>
+                            <div class="text-container">
+                                <h6>Give FeedBack</h6>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 

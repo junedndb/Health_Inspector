@@ -140,17 +140,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106121000510_initanmodel.cs" />
-    <Compile Include="Migrations\202106121000510_initanmodel.Designer.cs">
-      <DependentUpon>202106121000510_initanmodel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106121159377_initanmodela.cs" />
-    <Compile Include="Migrations\202106121159377_initanmodela.Designer.cs">
-      <DependentUpon>202106121159377_initanmodela.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106121333416_a.cs" />
-    <Compile Include="Migrations\202106121333416_a.Designer.cs">
-      <DependentUpon>202106121333416_a.cs</DependentUpon>
+    <Compile Include="Migrations\202106130724072_initial.cs" />
+    <Compile Include="Migrations\202106130724072_initial.Designer.cs">
+      <DependentUpon>202106130724072_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -177,22 +169,18 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Card.css" />
     <Content Include="Content\Customcss.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="img\book-4.jpg" />
-    <Content Include="img\book-5.jpg" />
-    <Content Include="img\book-6.jpg" />
-    <Content Include="img\books-1.jfif" />
-    <Content Include="img\books-2.jfif" />
     <Content Include="img\ch.jpg" />
+    <Content Include="img\diet.jpg" />
+    <Content Include="img\feedback.jpg" />
     <Content Include="img\hc1.jpg" />
+    <Content Include="img\help.jpg" />
     <Content Include="img\hhc.jpg" />
-    <Content Include="img\magazines-1.jfif" />
-    <Content Include="img\magazines-2.jfif" />
     <Content Include="img\nature.jpg" />
-    <Content Include="img\newspaper-1.jfif" />
     <Content Include="img\newspaper-3.jpg" />
     <Content Include="img\profile.png" />
     <Content Include="img\shirpur-map.png" />
@@ -379,14 +367,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106121000510_initanmodel.resx">
-      <DependentUpon>202106121000510_initanmodel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106121159377_initanmodela.resx">
-      <DependentUpon>202106121159377_initanmodela.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106121333416_a.resx">
-      <DependentUpon>202106121333416_a.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106130724072_initial.resx">
+      <DependentUpon>202106130724072_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

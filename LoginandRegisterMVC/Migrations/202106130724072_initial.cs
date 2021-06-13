@@ -3,7 +3,7 @@ namespace LoginandRegisterMVC.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initanmodela : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -26,13 +26,12 @@ namespace LoginandRegisterMVC.Migrations
                 c => new
                     {
                         DietRecommendationId = c.Int(nullable: false, identity: true),
-                        UserId = c.String(),
+                        UserId = c.Int(nullable: false),
                         Recommendation = c.String(),
-                        User_UserId = c.Int(),
                     })
                 .PrimaryKey(t => t.DietRecommendationId)
-                .ForeignKey("dbo.Users", t => t.User_UserId)
-                .Index(t => t.User_UserId);
+                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.FeedbackQuestions",
@@ -91,13 +90,13 @@ namespace LoginandRegisterMVC.Migrations
             DropForeignKey("dbo.Helps", "UserId", "dbo.Users");
             DropForeignKey("dbo.Feedbacks", "UserId", "dbo.Users");
             DropForeignKey("dbo.Feedbacks", "QuestionId", "dbo.FeedbackQuestions");
-            DropForeignKey("dbo.DietRecommendations", "User_UserId", "dbo.Users");
+            DropForeignKey("dbo.DietRecommendations", "UserId", "dbo.Users");
             DropForeignKey("dbo.BMIs", "UserId", "dbo.Users");
             DropIndex("dbo.ResolveHelps", new[] { "HelpId" });
             DropIndex("dbo.Helps", new[] { "UserId" });
             DropIndex("dbo.Feedbacks", new[] { "UserId" });
             DropIndex("dbo.Feedbacks", new[] { "QuestionId" });
-            DropIndex("dbo.DietRecommendations", new[] { "User_UserId" });
+            DropIndex("dbo.DietRecommendations", new[] { "UserId" });
             DropIndex("dbo.BMIs", new[] { "UserId" });
             DropTable("dbo.ResolveHelps");
             DropTable("dbo.Helps");
