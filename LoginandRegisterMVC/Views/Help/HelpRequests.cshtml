@@ -1,0 +1,36 @@
+﻿@model IEnumerable<LoginandRegisterMVC.Models.Help>
+
+@{
+    ViewBag.Title = "HelpRequests";
+}
+
+<h2>Help Requests</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.UserId)*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HelpId)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.UserId)*@
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.HelpId })
+                @Html.DisplayFor(modelItem => item.HelpId)
+            </td>
+        </tr>
+    }
+</table>
+
+<br />
+<hr />
+<div>Please Contact To TollFree Number: 1800-1230-4567</div>

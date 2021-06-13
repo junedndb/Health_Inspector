@@ -1,0 +1,34 @@
+﻿@model LoginandRegisterMVC.ViewModels.ViewResolutionsViewModel
+
+@{
+    ViewBag.Title = "ViewResolutions";
+}
+
+<h2>ViewResolutions</h2>
+<table class="table">
+    <tr>
+        <th>
+            Issue
+        </th>
+        <th>
+            Answer
+        </th>
+    </tr>
+
+    @foreach (var item in Model.ResolveHelps)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Help.Issue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResolveAnswer)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+<hr />
+<div>Please Contact To TollFree Number: 1800-1230-4567</div>

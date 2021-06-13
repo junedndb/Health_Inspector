@@ -13,7 +13,17 @@ namespace LoginandRegisterMVC.Models
 
         }
         public DbSet<User> Users { get; set; }
+        public DbSet<BMI> BMIs { get; set; }
 
+        public DbSet<DietRecommendation> DietRecommendations { get; set; }
+
+        public DbSet<Help> Helps { get; set; }
+
+        public DbSet<ResolveHelp> ResolveHelps { get; set; }
+
+        public DbSet<Feedback> Feedbacks { get; set; }
+
+        public DbSet<FeedbackQuestion> FeedbackQuestions { get; set; }
         public DbSet<DoctorDetail> DoctorDetails { get; set; }
         public DbSet<Clinic> Clinics { get; set; }
         public DbSet<ClinicFacilities> ClinicFacilitiess { get; set; }

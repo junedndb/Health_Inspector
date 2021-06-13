@@ -8,7 +8,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
-
+<center>
+    <h6><span style="background-color: blanchedalmond" id="helthtipTitle"></span></h6>
+    <h6><span style="background-color: blanchedalmond" id="helthtip"></span></h6>
+</center>
 <div class="w3-display-container w3-text-white">
     <img src="~/img/hhc.jpg" alt="Sample Image" style="width:100%;  border-radius:10px;" />
     <div class=" overlay ">
@@ -19,13 +22,13 @@
 </div>
 
 @*<div class="row">
-    <img src="~/img/hhc.jpg" alt="Sample Image" style="width:100%;  border-radius:10px;" />
-</div>
+        <img src="~/img/hhc.jpg" alt="Sample Image" style="width:100%;  border-radius:10px;" />
+    </div>
 *@<div class="card bg-secondary text-white text-center">
     @if (ViewBag.AName != null)
     {
-@*        <h2 class="card bg-secondary text-white text-center" style="padding:10px;margin:10px">Appointment Reminder</h2>
-*@        foreach (var a in ViewBag.AName)
+    @*        <h2 class="card bg-secondary text-white text-center" style="padding:10px;margin:10px">Appointment Reminder</h2>
+    *@ foreach (var a in ViewBag.AName)
         {
             string span = (DateTime.Parse(a.DateOfAppointment) - DateTime.Today).TotalDays.ToString();
             int check = Convert.ToInt32(span);
@@ -33,7 +36,7 @@
             {
                 if (check <= 5 && check > 0)
                 {
-                    <p style="padding:5px;margin:5px">@check Days left to Dr.@a.DoctorName appointment</p>
+    <p style="padding:5px;margin:5px">@check Days left to Dr.@a.DoctorName appointment</p>
                 }
             }
         }
@@ -56,7 +59,7 @@
 
 @if (!IsPost)
 {
-    @Html.Partial("SearchView")
+@Html.Partial("SearchView")
 
 }
 else
@@ -65,117 +68,181 @@ else
 
 
 
-    @*@using (Html.BeginForm("Index", "Users", FormMethod.Post))
-        {
-            //   @Html.AntiForgeryToken()
+@*@using (Html.BeginForm("Index", "Users", FormMethod.Post))
+    {
+        //   @Html.AntiForgeryToken()
 
-            <div class="form-horizontal container-fluid">
-                <h2 class="text-center text-danger">Search</h2>
-                <hr />
+        <div class="form-horizontal container-fluid">
+            <h2 class="text-center text-danger">Search</h2>
+            <hr />
 
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ClinicName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.ClinicName, htmlAttributes: new { @class = "control-label col-md-2" })
 
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.ClinicName, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ClinicName, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.DoctorName, htmlAttributes: new { @class = "control-label col-md-2" })
-
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.DoctorName, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Facilities, htmlAttributes: new { @class = "control-label col-md-2" })
-
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Facilities, new { htmlAttributes = new { @class = "form-control" } })
-
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Search" class="btn btn-success" />
-
-                    </div>
-                </div>
-
             </div>
-    *@
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DoctorName, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DoctorName, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Facilities, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Facilities, new { htmlAttributes = new { @class = "form-control" } })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Search" class="btn btn-success" />
+
+                </div>
+            </div>
+
+        </div>
+*@
 
 
 
 
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ClinicName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DoctorName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DoctorId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Facilities)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClinicTiming)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.City)
-            </th>
-            <th></th>
-        </tr>
-        @if (Model != null)
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ClinicName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DoctorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DoctorId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Facilities)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClinicTiming)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model != null)
         {
             foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ClinicName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DoctorName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DoctorId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Facilities)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ClinicTiming)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.City)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Book Appointment", "BookAppointment", "Appointments", new { did = item.DoctorId, uid = Session["Id"] }, null) |
-                    </td>
-                    @*<td>
-                            @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
-                            @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
-                            @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
-                        </td>*@
-                </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClinicName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoctorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoctorId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Facilities)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClinicTiming)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.ActionLink("Book Appointment", "BookAppointment", "Appointments", new { did = item.DoctorId, uid = Session["Id"] }, null) |
+        </td>
+        @*<td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
+            </td>*@
+    </tr>
             }
         }
         else
         {
-            <p>No Record Found</p>
+    <p>No Record Found</p>
         }
 
-    </table>
+</table>
 
-    <p>
-        @Html.ActionLink("Back to search", "Index")
-    </p>
+<p>
+    @Html.ActionLink("Back to search", "Index")
+</p>
 }
 @Html.ActionLink("My Appointment", "Index", "Appointments", new { id = Session["Id"] }, null) |
+
+
+
+
+
+<table border="0" width="100%" bgcolor="#E8E8E8" cellspacing="0" cellpadding="0">
+    <tr>
+        <td width="100%">
+            <script>
+
+                var today_obj = new Date()
+                var today_date = today_obj.getDate()
+
+                var tips = new Array()
+                var tiptitle = 'Health Tip of the Day'
+
+
+                tips[1] = 'Adults who eat a little chocolate five times a week are thinner than those who eat it less frequently'
+                tips[2] = 'Drinking green tea improves your working memory, which allows your brain to process multiple pieces of information at once.'
+                tips[3] = 'Sitting 11 hours or more each day leads to an earlier death'
+                tips[4] = 'Taking an antihistamine before bed can prevent dark under-eye circles in the morning (but think of it as an emergency beauty treatment, not a nightly routine).'
+                tips[5] = 'The smell of sage can reduce sadness and anxiety.'
+                tips[6] = 'Expressing gratitude boosts happiness and decreases depression (thank you for reading this!). '
+                tips[7] = 'Mothers who remain active during pregnancy beget babies with more advanced cerebral activity.'
+                tips[8] = 'Ginger is a natural antispasmotic compound, which means it helps reduce cramping, in addition to alleviating nausea and promote digestion.'
+                tips[9] = 'Exercising when you’re young will improve your brain function when you’re older.'
+                tips[10] = 'Eating foods high in lycopene—including tomatoes and tomato paste—can make you less susceptible to sunburn.'
+                tips[11] = 'When you pee in the pool, chlorine mixes with the uric acid in your urine to form dangerous compounds that can adversly affect the lung and heart.'
+                tips[12] = 'Reduce fat intake, cut down on sugar and opt for fruits and vegetables. This helps reduce cholesterol and blood pressure. Healthy food will also lead to better blood sugar control.'
+                tips[13] = 'Avoid caffeine, alcohol, nicotine, and other chemicals that interfere with sleep. Equip your bedroom with a comfortable mattress and pillows. Sleep in a dark clean and quiet environment.'
+                tips[14] = 'Meditation has been linked to a variety of health benefits. It has been linked to changes in metabolism, blood pressure, brain activation, and other bodily processes.'
+                tips[15] = 'On any given day, your weight will fluctuate by 2 to 5 pounds—of water.'
+                tips[16] = 'Eating chocolate makes your skin glow—its antioxidants improve blood and can help protect your skin against dullness-causing UV damage. '
+                tips[17] = 'Getting sunlight exposure in the morning will help you weigh less.'
+                tips[18] = 'Eating eggs can improve your reflexes; they contain an amino acid that helps us make quick, knee-jerk reactions.'
+                tips[19] = 'Massaging your scars will help them fade more so than any oil or lotion. '
+                tips[20] = ' Bananas relieve belly bloating.'
+                tips[21] = 'Spending time outdoors in nature increases happiness.'
+                tips[22] = 'Eating too much sugar can make PMS more severe.'
+                tips[23] = 'Stress can make allergy symptoms worse.'
+                tips[24] = 'Caffeine fights headaches by constricting the dialated blood vessels responsible for pain and throbbing.'
+                tips[25] = 'Eating oatmeal boosts seratonin, which calms your brain and improves your mood.'
+                tips[26] = 'Health is the greatest gift, contentment the greatest wealth, faithfulness the best relationship.'
+                tips[27] = 'But the real secret to lifelong good health is actually the opposite: Let your body take care of you.'
+                tips[28] = 'Exercise can help you feel energized and improve your sleep and overall well being.'
+                tips[29] = 'Start Your Day With H2O'
+                tips[30] = 'Take vitamin D3 if you don’t get much sun exposure'
+                tips[31] = 'Social relationships are incredibly important not only for your mental well-being but also your physical health.'
+
+                document.getElementById("helthtipTitle").innerHTML = tiptitle;
+                document.getElementById("helthtip").innerHTML = tips[today_date];
+
+            </script>
+        </td>
+    </tr>
+</table>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+}
