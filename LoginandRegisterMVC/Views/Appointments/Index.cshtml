@@ -79,12 +79,35 @@
 
 
     <td>
-        @*        @Html.ActionLink("Edit", "Edit", new { id = item.AppointmentId, uid = item.DoctorId }) |
-        *@        @Html.ActionLink("Delete", "Delete", new { id = item.AppointmentId, uid = Session["Id"] })
+
+        @* @Html.ActionLink("Edit", "Edit", new { id = item.AppointmentId, uid = item.DoctorId }) |*@
+        @Html.ActionLink("Delete", "Delete", new { id = item.AppointmentId, uid = Session["Id"] }) |
         @Html.ActionLink("Details", "Details", new { id = item.AppointmentId, uid = Session["Id"] }) |
         @if (Session["Role"].Equals("Doctor"))
         {
             @Html.ActionLink("Approve", "Approve", new { id = item.AppointmentId, uid = item.DoctorId })
+
+            var IsMatch = false;
+
+            foreach (var i in ViewBag.check)
+            {
+                var j = 0;
+                if (i.AppointmentId.Equals(item.AppointmentId))
+                {
+                    IsMatch = true;
+                    break;
+                }
+
+            }
+            if (IsMatch)
+            {
+
+            }
+            else
+            {
+                @Html.ActionLink("Add PatientRecord", "PatientRecord", new { id = item.AppointmentId, uid = item.DoctorId })
+
+            }
 
         }
     </td>
@@ -92,3 +115,9 @@
     }
 
 </table>
+
+@*@foreach (var a in ViewBag.check)
+{
+    <p>@a.VisitDate</p>
+}
+*@

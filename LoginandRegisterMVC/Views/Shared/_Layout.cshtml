@@ -36,6 +36,7 @@
                     else if (Session["RoleLogin"].Equals("Doctor"))
 
                     {
+                        <li class="nav-item ">@Html.ActionLink("Home", "Index", "Doctor", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
                         <li class="nav-item ">@Html.ActionLink("DoctorDetails", "Index", "Doctor", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
                         <li class="nav-item ">@Html.ActionLink("ClinicDetails", "Index", "Clinics", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
                         <li class="navbar-right nav-item">@Html.ActionLink("Help", "HelpAsk", "Help", new { id = Session["Id"] }, new { @class = "nav-link" })</li>

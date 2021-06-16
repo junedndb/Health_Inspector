@@ -22,10 +22,21 @@ namespace LoginandRegisterMVC.Controllers
             var das = (from a in db.Users where a.UserId == id select a).FirstOrDefault();
 
             Session["Id"] = id;
-            
+
             Session["Role"] = das.Role;
+
+            var patrec = (from a in db.patientRecords join b in db.Appointments
+                          on a.AppointmentId equals b.AppointmentId where 
+                          b.DoctorId == id select a).ToList();
+
             if (Session["Role"].Equals("Doctor"))
             {
+/*                List<PatientRecord> records = new List<PatientRecord>();
+                foreach (var a in db.patientRecords.Where(b => b.AppointmentId == isrec.AppointmentId))
+                {
+                    records.Add(a);
+                }
+*/                ViewBag.check = patrec;
                 return View(da);
 
             }
@@ -193,6 +204,32 @@ namespace LoginandRegisterMVC.Controllers
             approve.Status = "Approve";
             db.SaveChanges();
             return RedirectToAction("Index","Appointments",new { id= uid});
+        }
+        public ActionResult PatientRecord(int? id, int? uid,PatientRecord patient)
+        {
+            var record = (from a in db.Users 
+                          join b in db.Appointments on a.UserId equals b.PatientId
+                          join c in db.DoctorDetails on b.DoctorId equals c.DoctorId
+                          where b.AppointmentId == id 
+                          select new { a.Dob,a.Gender,
+                          b.PatientName,b.DateOfAppointment,b.DoctorName,b.DoctorId,b.AppointmentId,c.Specialization}).FirstOrDefault();
+
+            patient = new PatientRecord()
+            {
+                PatientName = record.PatientName,
+                Age = record.Dob,
+                Gender = record.Gender,
+                VisitDate = record.DateOfAppointment,
+                DoctorName = record.DoctorName,
+                DoctorID = record.DoctorId,
+                AppointmentId = record.AppointmentId,
+                DoctorSpecialization = record.Specialization
+            };
+
+            db.patientRecords.Add(patient);
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "PatientRecords", new { id = uid });
         }
         protected override void Dispose(bool disposing)
         {
