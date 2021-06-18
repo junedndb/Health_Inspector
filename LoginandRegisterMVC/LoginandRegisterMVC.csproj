@@ -142,33 +142,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106130724072_initial.cs" />
-    <Compile Include="Migrations\202106130724072_initial.Designer.cs">
-      <DependentUpon>202106130724072_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106150902452_initial1.cs" />
-    <Compile Include="Migrations\202106150902452_initial1.Designer.cs">
-      <DependentUpon>202106150902452_initial1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106151013157_initial2.cs" />
-    <Compile Include="Migrations\202106151013157_initial2.Designer.cs">
-      <DependentUpon>202106151013157_initial2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106151131142_initial3.cs" />
-    <Compile Include="Migrations\202106151131142_initial3.Designer.cs">
-      <DependentUpon>202106151131142_initial3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106151228269_initial4.cs" />
-    <Compile Include="Migrations\202106151228269_initial4.Designer.cs">
-      <DependentUpon>202106151228269_initial4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106160457368_initial5.cs" />
-    <Compile Include="Migrations\202106160457368_initial5.Designer.cs">
-      <DependentUpon>202106160457368_initial5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106160603088_initial6.cs" />
-    <Compile Include="Migrations\202106160603088_initial6.Designer.cs">
-      <DependentUpon>202106160603088_initial6.cs</DependentUpon>
+    <Compile Include="Migrations\202106181427184_initial.cs" />
+    <Compile Include="Migrations\202106181427184_initial.Designer.cs">
+      <DependentUpon>202106181427184_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -407,26 +383,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106130724072_initial.resx">
-      <DependentUpon>202106130724072_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106150902452_initial1.resx">
-      <DependentUpon>202106150902452_initial1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106151013157_initial2.resx">
-      <DependentUpon>202106151013157_initial2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106151131142_initial3.resx">
-      <DependentUpon>202106151131142_initial3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106151228269_initial4.resx">
-      <DependentUpon>202106151228269_initial4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106160457368_initial5.resx">
-      <DependentUpon>202106160457368_initial5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106160603088_initial6.resx">
-      <DependentUpon>202106160603088_initial6.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106181427184_initial.resx">
+      <DependentUpon>202106181427184_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

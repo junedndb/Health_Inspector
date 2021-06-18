@@ -29,7 +29,7 @@ namespace LoginandRegisterMVC.Controllers
         public ActionResult HelpAsk(Help help)
         {
            // string myVar = (string)HttpContext.Session["UserId"];
-            help.UserId = (int)HttpContext.Session["UserId"];
+            help.UserId = (int)HttpContext.Session["Id"];
 
             if (ModelState.IsValid)
             {
