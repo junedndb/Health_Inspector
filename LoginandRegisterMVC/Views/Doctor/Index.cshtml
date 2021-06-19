@@ -1,18 +1,30 @@
-﻿@model IEnumerable<LoginandRegisterMVC.Models.DoctorDetail>
+﻿
+@model IEnumerable<LoginandRegisterMVC.Models.DoctorDetail>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Add New Doctor</h2>
-<p>@Session["Available"]</p>
+<br>
+<div class="w3-display-container w3-text-white">
+    <img src="~/img/hhc.jpg" alt="Sample Image" style="width:100%;  border-radius:10px;" />
+    <div class=" overlay ">
+        <div class="text">
+            <h2 class="w3-jumbo" style="font-family:'Times New Roman';"><b>Health Inspector</b></h2>
+        </div>
+    </div>
+</div>
+<br />
 
-        @if (Session["Available"].Equals("No"))
-        {
-            <p>
-                @Html.ActionLink("Create New", "Create", new { id = Session["Id"] })
-            </p>
-        }
+<h2>Add New Doctor</h2>
+@*<p>@Session["Available"]</p>
+*@
+@if (Session["Available"].Equals("No"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create", new { id = Session["Id"] })
+    </p>
+}
 @*<p>
         @Html.ActionLink("Create New", "Create")
     </p>
@@ -55,9 +67,86 @@
             </td>
         </tr>
         <p>
-            @Html.ActionLink("Appointments List of "+item.DoctorName, "Index", "Appointments", new { id = Session["Id"] }, null)
+            @Html.ActionLink("Appointments List of " + item.DoctorName, "Index", "Appointments", new { id = Session["Id"] }, null)
         </p>
     }
 
 </table>
 
+<div id="cards_landscape_wrap-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+                <a href="/Appointments/Index/" onclick="location.href=this.href+@Session["Id"];return false;">
+                    @*                    @Html.ActionLink("Help", "HelpAsk", "Help", new { id = Session["Id"] }, null)
+                    *@
+                    <div class="card-flyer">
+                        <div class="text-box">
+                            <div class="image-box">
+                                @*                                <img src="https://cdn.pixabay.com/photo/2018/03/30/15/11/deer-3275594_960_720.jpg" alt="" />
+                                *@                                <img src="~/img/help.jpg" alt="" />
+                            </div>
+                            <div class="text-container">
+                                <h6>Appointment Details</h6>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <a href="/Clinics/Index/" onclick="location.href=this.href+@Session["Id"];return false;">
+                    <div class="card-flyer">
+                        <div class="text-box">
+                            <div class="image-box">
+                                @*                                <img src="https://cdn.pixabay.com/photo/2018/04/09/19/55/low-poly-3305284_960_720.jpg" alt="" />
+                                *@                                <img src="~/img/ap.jpg" alt="" />
+                            </div>
+                            <div class="text-container">
+                                <h6>Clinic Details</h6>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <a href="/PatientRecords/Index/" onclick="location.href=this.href+@Session["Id"];return false;">
+                    <div class="card-flyer">
+                        <div class="text-box">
+                            <div class="image-box">
+                                @*                                <img src="https://cdn.pixabay.com/photo/2018/04/09/19/55/low-poly-3305284_960_720.jpg" alt="" />
+                                *@                                <img src="~/img/pr.jpg" alt="" />
+                            </div>
+                            <div class="text-container">
+                                <h6>Patient Record</h6>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <a href="/PatientTreatmentRecords/Index" onclick="location.href=this.href+'?did='+@Session["Id"];return false;">
+                    <div class="card-flyer">
+                        <div class="text-box">
+                            <div class="image-box">
+                                @*                                <img src="https://cdn.pixabay.com/photo/2018/04/09/19/55/low-poly-3305284_960_720.jpg" alt="" />
+                                *@                                <img src="~/img/c1.jpg" alt="" />
+                            </div>
+                            <div class="text-container">
+                                <h6>Patient Treatment Record</h6>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>

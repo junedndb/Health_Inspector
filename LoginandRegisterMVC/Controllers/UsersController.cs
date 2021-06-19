@@ -12,7 +12,7 @@ using System.Web.Security;
 
 namespace LoginandRegisterMVC.Controllers
 {
-    
+
     public class UsersController : Controller
     {
         private UserContext db = new UserContext();
@@ -35,9 +35,10 @@ namespace LoginandRegisterMVC.Controllers
 
                 ViewBag.AName = name;
             }
-/*            var data = (from a in db.Clinics
-                        select a).ToList();
-*/            return View();
+            /*            var data = (from a in db.Clinics
+                                    select a).ToList();
+            */
+            return View();
 
             //            return View(db.Users.ToList());
         }
@@ -49,9 +50,9 @@ namespace LoginandRegisterMVC.Controllers
                         where a.Specialization == clinic.Specialization &&
                         a.City == clinic.City
                         select a).ToList();
-            
-                        return View(data.ToList());
-//            return View(clinic);
+
+            return View(data.ToList());
+            //            return View(clinic);
         }
 
         [HttpGet]
@@ -71,7 +72,7 @@ namespace LoginandRegisterMVC.Controllers
                 ViewBag.Message = "New User Registered Successfully !";
 
                 return View();
-//                return RedirectToAction("Login");
+                //                return RedirectToAction("Login");
 
             }
             return View(user);
@@ -83,48 +84,48 @@ namespace LoginandRegisterMVC.Controllers
             return View();
         }
         [HttpPost]
-//        [ValidateAntiForgeryToken]
+        //        [ValidateAntiForgeryToken]
         public ActionResult Login(User user)
         {
 
-//            var data = (from a in db.Users where a.MailId == user.MailId && a.Password == user.Password  && a.Role == user.Role select a).First();
+            //            var data = (from a in db.Users where a.MailId == user.MailId && a.Password == user.Password  && a.Role == user.Role select a).First();
             //            bool IsValidUser = db.Users.Any(a => a.MailId == user.MailId) && dt.Password == user.Password && role==user.Role ;
             //            bool IsValidUser = db.Users.Where(a => a.MailId == user.MailId) && db.Users.Where(a => a.Password == user.Password) && db.Users.Where(a => a.Role == user.Role);
 
             var IsValidUser = db.Users.Where(a => a.MailId == user.MailId && a.Password == user.Password && a.Role == user.Role).FirstOrDefault();
 
-            if (IsValidUser!=null)
-                {
-                    FormsAuthentication.SetAuthCookie(user.Username, false);
-                    Session["MailId"] = user.MailId.ToString();
+            if (IsValidUser != null)
+            {
+                FormsAuthentication.SetAuthCookie(user.Username, false);
+                Session["MailId"] = user.MailId.ToString();
 
-                    if (IsValidUser.Role == "Doctor")
-                    {
-                        Session["RoleLogin"] = user.Role;
-                        Session["Id"] = IsValidUser.UserId;
-//                        return RedirectToAction("Index", "Doctor",new {id = MailId.UserId});
-                    return RedirectToAction("Index", "Doctor",new { id = IsValidUser.UserId});
-                    }
-                    else if (IsValidUser.Role == "Patient")
-                    {
+                if (IsValidUser.Role == "Doctor")
+                {
+                    Session["RoleLogin"] = user.Role;
+                    Session["Id"] = IsValidUser.UserId;
+                    //                        return RedirectToAction("Index", "Doctor",new {id = MailId.UserId});
+                    return RedirectToAction("Index", "Doctor", new { id = IsValidUser.UserId });
+                }
+                else if (IsValidUser.Role == "Patient")
+                {
 
                     Session["Id"] = IsValidUser.UserId;
                     Session["RoleLogin"] = user.Role;
-                        return RedirectToAction("Index", "Users", new { id = IsValidUser.UserId });
-                    }
-                    else if (IsValidUser.Role == "Admin")
-                    {
+                    return RedirectToAction("Index", "Users", new { id = IsValidUser.UserId });
+                }
+                else if (IsValidUser.Role == "Admin")
+                {
                     Session["Id"] = IsValidUser.UserId;
                     Session["RoleLogin"] = user.Role;
-                        return RedirectToAction("Index", "Adminright", new { id = IsValidUser.UserId });
-                    }
+                    return RedirectToAction("Index", "Adminright", new { id = IsValidUser.UserId });
                 }
-                else
-                {
-                    ModelState.AddModelError("", "invalid Username or Password or UserType");
-               // return Content("invalid Username or Password or UserType");
+            }
+            else
+            {
+                ModelState.AddModelError("", "invalid Username or Password or UserType");
+                // return Content("invalid Username or Password or UserType");
 
-                }
+            }
             return View();
         }
         [Authorize]
@@ -148,7 +149,7 @@ namespace LoginandRegisterMVC.Controllers
             if (IsValid)
             {
                 var comp = (from a in db.Users
-                          where a.Fque == user.Fque && a.Sque == user.Sque && a.Tque == user.Tque
+                            where a.Fque == user.Fque && a.Sque == user.Sque && a.Tque == user.Tque
                             select a).FirstOrDefault();
                 ViewBag.UName = comp.Username;
                 return View();
@@ -174,7 +175,7 @@ namespace LoginandRegisterMVC.Controllers
             var IsValid = db.Users.Where(a => a.MailId == user.MailId &&
                         a.Fque == user.Fque && a.Sque == user.Sque &&
                         a.Tque == user.Tque && a.Role == user.Role).FirstOrDefault();
-            if (IsValid !=null)
+            if (IsValid != null)
             {
                 /*                var comp = (from a in db.Users
                                             where a.MailId == user.MailId &&
@@ -185,7 +186,7 @@ namespace LoginandRegisterMVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Login");
             }
-            else 
+            else
             {
                 ModelState.AddModelError("", "invalid security answer!");
 

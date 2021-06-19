@@ -1,73 +1,77 @@
-﻿
-@model LoginandRegisterMVC.Models.User
+﻿@model LoginandRegisterMVC.Models.BMI
 
 @{
-    ViewBag.Title = "Login";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "DietRecommendation";
 }
 
-<div class="bg-secondary text-white " style="border-radius:20px;margin-top:50px;">
-@using (Html.BeginForm())
+@if (!IsPost)
 {
-    //   @Html.AntiForgeryToken()
-    <div style="background:url(~/img/nature.jpg)">
-        <div class="form-horizontal  container-fluid" style="margin-left:350px;margin-top:50px;">
-            <h2 class="text-white" style="padding-left:95px">LOGIN</h2>
-            <br />
 
-            <img src="~/img/profile.png" alt="Sample Image" style="width:300px; border-radius:50%" /><br>
+    <h3>Diet Recommendation Based On Body Mass Index</h3>
+    <h4>BMI</h4>
+    using (Html.BeginForm())
+    {
+        @*@Html.AntiForgeryToken()*@
 
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })<br />
+        <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
-                @Html.LabelFor(model => model.MailId, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Height, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.MailId, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.MailId, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Height, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Height, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
 
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Weight, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.Role, new List<SelectListItem>
-                    {
-                        new SelectListItem{Text="Admin",Value="Admin"},
-                        new SelectListItem{Text="Patient",Value="Patient"},
-                        new SelectListItem{Text="Doctor",Value="Doctor"}
-                    }, "Select Role", htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Weight, "", new { @class = "text-danger" })
                 </div>
             </div>
+
+
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Login" class="btn btn-success" />
-                    <p> </p>@Html.ActionLink("ForgotPassword", "ForgotPassword")
-
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <p> </p>@Html.ActionLink("Forgot Id", "ForgotId")
-
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    @Html.ActionLink("SignUp", "Register")
+                    <input type="submit" value="Get Recommendation" class="btn btn-primary" />
                 </div>
             </div>
         </div>
-    </div>
+    }
+}
+else
+{
+
+
+    {
+        if (Model.BMIResult != 0)
+        {
+            <div style="background-color: bisque">
+                <h4>
+                    <h4>Recommendation Based On Your @ViewBag.bMi BMI</h4>
+                    <ul>
+                        <li><b>Weight Category : @ViewBag.Weightcategory</b></li>
+                        <li><b>Diet Recommendation For You  : </b> @ViewBag.DietRecommendation</li>
+                        <li><b>Exercises Recommendation For You  :</b>@ViewBag.ExerciseRecommendation</li>
+                    </ul>
+                </h4>
+            </div>
+
+        }
+    }
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
 }
 
 
@@ -122,11 +126,7 @@
         </td>
     </tr>
 </table>
-</div>
 
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
 
 
-}

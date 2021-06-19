@@ -1,0 +1,40 @@
+﻿@model IEnumerable<LoginandRegisterMVC.Models.ResolveHelp>
+
+@{
+    ViewBag.Title = "SeeResolutions";
+}
+
+<h2>SeeResolutions</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Help.Issue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResolveAnswer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Help.Description)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Help.Issue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResolveAnswer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Help.Description)
+            </td>
+        </tr>
+    }
+
+</table>
