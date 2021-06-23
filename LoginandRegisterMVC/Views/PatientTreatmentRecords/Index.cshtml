@@ -1,0 +1,87 @@
+﻿@model IEnumerable<LoginandRegisterMVC.Models.PatientTreatmentRecord>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PatientName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatientId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Symptoms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diagnosis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TreatmentPlanned)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RevisitRequired)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NextRevisitDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NextRevisitTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FrequencyRevisit)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PatientName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PatientId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Symptoms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diagnosis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TreatmentPlanned)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RevisitRequired)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NextRevisitDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NextRevisitTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrequencyRevisit)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

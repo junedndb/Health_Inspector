@@ -6,12 +6,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="bg-secondary text-white " style="border-radius:20px;margin-top:50px;">
 @using (Html.BeginForm())
 {
     //   @Html.AntiForgeryToken()
     <div style="background:url(~/img/nature.jpg)">
         <div class="form-horizontal  container-fluid" style="margin-left:350px;margin-top:50px;">
-            <h2 class="text-danger" style="padding-left:95px">LOGIN</h2>
+            <h2 class="text-white" style="padding-left:95px">LOGIN</h2>
             <br />
 
             <img src="~/img/profile.png" alt="Sample Image" style="width:300px; border-radius:50%" /><br>
@@ -121,7 +122,7 @@
         </td>
     </tr>
 </table>
-
+</div>
 
 
 @section Scripts {

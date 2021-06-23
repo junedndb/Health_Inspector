@@ -30,6 +30,10 @@ namespace LoginandRegisterMVC.Models
         [Display(Name = "Last Name")]
         public string lastname { get; set; }
 
+        [Required]
+        [Display(Name = "Gender")]
+        public string Gender { get; set; }
+
 
         [Required]
         [Display(Name ="Username")]

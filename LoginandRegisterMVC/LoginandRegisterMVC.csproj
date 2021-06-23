@@ -136,13 +136,15 @@
     <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PatientRecordsController.cs" />
+    <Compile Include="Controllers\PatientTreatmentRecordsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106130724072_initial.cs" />
-    <Compile Include="Migrations\202106130724072_initial.Designer.cs">
-      <DependentUpon>202106130724072_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202106181427184_initial.cs" />
+    <Compile Include="Migrations\202106181427184_initial.Designer.cs">
+      <DependentUpon>202106181427184_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -155,6 +157,7 @@
     <Compile Include="Models\FeedbackQuestion.cs" />
     <Compile Include="Models\Help.cs" />
     <Compile Include="Models\PatientRecord.cs" />
+    <Compile Include="Models\PatientTreatmentRecord.cs" />
     <Compile Include="Models\ResolveHelp.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserContext.cs" />
@@ -175,6 +178,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="img\ap.jpg" />
+    <Content Include="img\c1.jpg" />
     <Content Include="img\ch.jpg" />
     <Content Include="img\diet.jpg" />
     <Content Include="img\feedback.jpg" />
@@ -183,6 +187,7 @@
     <Content Include="img\hhc.jpg" />
     <Content Include="img\nature.jpg" />
     <Content Include="img\newspaper-3.jpg" />
+    <Content Include="img\pr.jpg" />
     <Content Include="img\profile.png" />
     <Content Include="img\shirpur-map.png" />
     <Content Include="profile.png" />
@@ -353,6 +358,16 @@
     <Content Include="Views\Help\Resolution.cshtml" />
     <Content Include="Views\Help\SeeResolutions.cshtml" />
     <Content Include="Views\Help\ViewResolutions.cshtml" />
+    <Content Include="Views\PatientRecords\Create.cshtml" />
+    <Content Include="Views\PatientRecords\Delete.cshtml" />
+    <Content Include="Views\PatientRecords\Details.cshtml" />
+    <Content Include="Views\PatientRecords\Edit.cshtml" />
+    <Content Include="Views\PatientRecords\Index.cshtml" />
+    <Content Include="Views\PatientTreatmentRecords\Create.cshtml" />
+    <Content Include="Views\PatientTreatmentRecords\Delete.cshtml" />
+    <Content Include="Views\PatientTreatmentRecords\Details.cshtml" />
+    <Content Include="Views\PatientTreatmentRecords\Edit.cshtml" />
+    <Content Include="Views\PatientTreatmentRecords\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -368,8 +383,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106130724072_initial.resx">
-      <DependentUpon>202106130724072_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106181427184_initial.resx">
+      <DependentUpon>202106181427184_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

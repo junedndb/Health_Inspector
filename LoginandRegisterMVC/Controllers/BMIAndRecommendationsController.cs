@@ -39,7 +39,7 @@ namespace LoginandRegisterMVC.Controllers
 
             bMI.BMIResult = bMI.Weight / ((bMI.Height * 0.3048) * (bMI.Height * 0.3048));
 
-            bMI.UserId = (int)HttpContext.Session["UserId"];
+            bMI.UserId = (int)HttpContext.Session["Id"];
 
             if (ModelState.IsValid)
             {
@@ -103,7 +103,8 @@ namespace LoginandRegisterMVC.Controllers
             }
            
             
-            dietRecommendation.UserId = (int)HttpContext.Session["UserId"];
+            dietRecommendation.UserId = (int)HttpContext.Session["Id"];
+            //(int)HttpContext.Session["Id"];
 
             ViewBag.bMi = Math.Round(bMI.BMIResult, 2);
             //string myVar = (int)HttpContext.Session["UserId"];

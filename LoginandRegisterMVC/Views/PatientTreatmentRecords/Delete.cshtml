@@ -1,0 +1,104 @@
+﻿@model LoginandRegisterMVC.Models.PatientTreatmentRecord
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PatientTreatmentRecord</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatientName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatientId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Symptoms)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Symptoms)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diagnosis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diagnosis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TreatmentPlanned)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TreatmentPlanned)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RevisitRequired)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RevisitRequired)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NextRevisitDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NextRevisitDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NextRevisitTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NextRevisitTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FrequencyRevisit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FrequencyRevisit)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
