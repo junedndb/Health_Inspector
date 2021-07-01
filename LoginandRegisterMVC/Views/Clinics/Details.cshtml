@@ -11,6 +11,22 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Locality.Locality_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Locality.Locality_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Speciality.Speciality_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Speciality.Speciality_name)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.ClinicName)
         </dt>
 
@@ -35,19 +51,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Facilities)
+            @Html.DisplayNameFor(model => model.Services)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Facilities)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ClinicTiming)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ClinicTiming)
+            @Html.DisplayFor(model => model.Services)
         </dd>
 
         <dt>
@@ -56,14 +64,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.AddressFLine)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AddressSLine)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AddressSLine)
         </dd>
 
         <dt>
@@ -93,6 +93,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index","Clinics",new { id = Session["Id"] },null)
+    @*   @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to List", "Index", "Clinics", new { id = Session["Id"] }, null)
 </p>

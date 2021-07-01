@@ -1,108 +1,88 @@
 ﻿@model LoginandRegisterMVC.Models.DoctorDetail
 
-@{
-    ViewBag.Title = "Create";
-}
+@{ ViewBag.Title = "Create"; }
 
 <h2>Create</h2>
 
 @using (Html.BeginForm())
 {
-    //   @Html.AntiForgeryToken()
+    // @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>DoctorDetail</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @*    <div class="form-group">
-                @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        *@
-        <div class="form-group">
-            @Html.LabelFor(model => model.DoctorName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DoctorName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DoctorName, "", new { @class = "text-danger" })
-            </div>
+<div class="form-horizontal">
+    <h4>DoctorDetail</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @* <div class="form-group">
+        @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+        @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DoctorId, "DoctorUserId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("DoctorId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.DoctorId, "", new { @class = "text-danger" })
-            </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Specialization, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @*                @Html.EditorFor(model => model.Specialization, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Specialization, "", new { @class = "text-danger" })
-                *@
-
-                @Html.DropDownListFor(model => model.Specialization, new List<SelectListItem>
-                {
-                    new SelectListItem{Text="Family Physician",Value="Family Physician"},
-                    new SelectListItem{Text="Internal Medicine Physician",Value="Internal Medicine Physician"},
-                    new SelectListItem{Text="Pediatrician",Value="Pediatrician"},
-                    new SelectListItem{Text="Obstetrician",Value="Obstetrician"},
-                    new SelectListItem{Text="Surgeon",Value="Surgeon"},
-                    new SelectListItem{Text="Psychiatrist",Value="Psychiatrist"},
-                    new SelectListItem{Text="Cardiologist",Value="Cardiologist"},
-                    new SelectListItem{Text="Dermatologist",Value="Dermatologist"},
-                    new SelectListItem{Text="Endocrinologist",Value="Endocrinologist"},
-                    new SelectListItem{Text="Gastroenterologist",Value="Gastroenterologist"},
-                    new SelectListItem{Text="Infection Disease Physician",Value="Infection Disease Physician"},
-                    new SelectListItem{Text="Nephorologist",Value="Nephorologist"},
-                    new SelectListItem{Text="Opthalmogist",Value="Opthalmogist"},
-                    new SelectListItem{Text="Pulmonologist",Value="Pulmonologist"},
-                    new SelectListItem{Text="Neurologist",Value="Neurologist"},
-                    new SelectListItem{Text="Physician Executive",Value="Physician Executive"}
-                }, "Select Role", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Specialization, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TotalClinic, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TotalClinic, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TotalClinic, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Avalaibility, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Avalaibility, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Avalaibility, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-success" />
-            </div>
+    *@
+    <div class="form-group">
+        @Html.LabelFor(model => model.DoctorName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DoctorName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DoctorName, "", new { @class = "text-danger" })
         </div>
     </div>
-}
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DoctorId, "DoctorUserId", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.DoctorId, ViewBag.DoctorId as SelectList, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DoctorId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Specialization, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Specialization, ViewBag.Speciality as SelectList, "--select--")
+            @Html.ValidationMessageFor(model => model.Specialization, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NumberClinic, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.NumberClinic, ViewBag.c1 as MultiSelectList, "-select-", new { @class = "form-control chosen-company", multiple = "multiple" })
+            @Html.ValidationMessageFor(model => model.NumberClinic, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Avalaibility, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Avalaibility, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Avalaibility, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-success" />
+        </div>
+    </div>
+</div>}
 
 @if (Session["Role"].Equals("Admin"))
 {
-    <div>
-        @Html.ActionLink("Back to List", "Index", new { id = Session["Id"]})
-    </div>
+<div>
+    @Html.ActionLink("Back to List", "Index", new { id = Session["Id"] })
+</div> }
+            else
+            {
+<div>
+    @Html.ActionLink("Back to List", "Index", new { id = Session["Id"] })
+</div>}
 
-}
-else
-{
-    <div>
-        @Html.ActionLink("Back to List", "Index", new { id = Session["Id"] })
-    </div>
+@section Scripts{
+
+    @Scripts.Render("~/bundles/chosen");
+    <script type="text/javascript">$(function () {
+$(".chosen-company").chosen();
+});</script>
 
 }

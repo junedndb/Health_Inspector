@@ -1,13 +1,10 @@
-﻿
-@model IEnumerable<LoginandRegisterMVC.Models.DoctorDetail>
+﻿@model IEnumerable<LoginandRegisterMVC.Models.DoctorDetail>
 
-@{
-    ViewBag.Title = "Index";
-}
+@{ ViewBag.Title = "Index"; }
 
 <br>
 <div class="w3-display-container w3-text-white">
-    <img src="~/img/hhc.jpg" alt="Sample Image" style="width:100%;  border-radius:10px;" />
+    <img src="~/img/hhc.jpg" alt="Sample Image" style="width:100%; border-radius:10px;" />
     <div class=" overlay ">
         <div class="text">
             <h2 class="w3-jumbo" style="font-family:'Times New Roman';"><b>Health Inspector</b></h2>
@@ -17,16 +14,15 @@
 <br />
 
 <h2>Add New Doctor</h2>
+
 @*<p>@Session["Available"]</p>
 *@
 @if (Session["Available"].Equals("No"))
 {
-    <p>
-        @Html.ActionLink("Create New", "Create", new { id = Session["Id"] })
-    </p>
-}
-@*<p>
-        @Html.ActionLink("Create New", "Create")
+<p>
+    @Html.ActionLink("Create New", "Create", new { id = Session["Id"] })
+</p> } @*<p>
+    @Html.ActionLink("Create New", "Create")
     </p>
 *@<table class="table">
     <tr>
@@ -34,7 +30,7 @@
             @Html.DisplayNameFor(model => model.DoctorName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Specialization)
+            @Html.DisplayNameFor(model => model.Speciality.Speciality_name)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TotalClinic)
@@ -47,29 +43,29 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DoctorName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Specialization)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalClinic)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Avalaibility)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id, did = Session["Id"] }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id, did = Session["Id"] }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id, did = Session["Id"] })
-            </td>
-        </tr>
-        <p>
-            @Html.ActionLink("Appointments List of " + item.DoctorName, "Index", "Appointments", new { id = Session["Id"] }, null)
-        </p>
-    }
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.DoctorName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Speciality.Speciality_name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TotalClinic)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Avalaibility)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id, did = Session["Id"] }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id, did = Session["Id"] }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id, did = Session["Id"] })
+    </td>
+</tr>
+                <p>
+                    @Html.ActionLink("Appointments List of " + item.DoctorName, "Index", "Appointments", new { id = Session["Id"] }, null)
+                </p>
+}
 
 </table>
 
@@ -79,13 +75,13 @@
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 
                 <a href="/Appointments/Index/" onclick="location.href=this.href+@Session["Id"];return false;">
-                    @*                    @Html.ActionLink("Help", "HelpAsk", "Help", new { id = Session["Id"] }, null)
+                    @* @Html.ActionLink("Help", "HelpAsk", "Help", new { id = Session["Id"] }, null)
                     *@
                     <div class="card-flyer">
                         <div class="text-box">
                             <div class="image-box">
-                                @*                                <img src="https://cdn.pixabay.com/photo/2018/03/30/15/11/deer-3275594_960_720.jpg" alt="" />
-                                *@                                <img src="~/img/help.jpg" alt="" />
+                                @* <img src="https://cdn.pixabay.com/photo/2018/03/30/15/11/deer-3275594_960_720.jpg" alt="" />
+                                *@ <img src="~/img/help.jpg" alt="" />
                             </div>
                             <div class="text-container">
                                 <h6>Appointment Details</h6>
@@ -101,8 +97,8 @@
                     <div class="card-flyer">
                         <div class="text-box">
                             <div class="image-box">
-                                @*                                <img src="https://cdn.pixabay.com/photo/2018/04/09/19/55/low-poly-3305284_960_720.jpg" alt="" />
-                                *@                                <img src="~/img/ap.jpg" alt="" />
+                                @* <img src="https://cdn.pixabay.com/photo/2018/04/09/19/55/low-poly-3305284_960_720.jpg" alt="" />
+                                *@ <img src="~/img/ap.jpg" alt="" />
                             </div>
                             <div class="text-container">
                                 <h6>Clinic Details</h6>
@@ -118,8 +114,8 @@
                     <div class="card-flyer">
                         <div class="text-box">
                             <div class="image-box">
-                                @*                                <img src="https://cdn.pixabay.com/photo/2018/04/09/19/55/low-poly-3305284_960_720.jpg" alt="" />
-                                *@                                <img src="~/img/pr.jpg" alt="" />
+                                @* <img src="https://cdn.pixabay.com/photo/2018/04/09/19/55/low-poly-3305284_960_720.jpg" alt="" />
+                                *@ <img src="~/img/pr.jpg" alt="" />
                             </div>
                             <div class="text-container">
                                 <h6>Patient Record</h6>
@@ -135,8 +131,8 @@
                     <div class="card-flyer">
                         <div class="text-box">
                             <div class="image-box">
-                                @*                                <img src="https://cdn.pixabay.com/photo/2018/04/09/19/55/low-poly-3305284_960_720.jpg" alt="" />
-                                *@                                <img src="~/img/c1.jpg" alt="" />
+                                @* <img src="https://cdn.pixabay.com/photo/2018/04/09/19/55/low-poly-3305284_960_720.jpg" alt="" />
+                                *@ <img src="~/img/c1.jpg" alt="" />
                             </div>
                             <div class="text-container">
                                 <h6>Patient Treatment Record</h6>

@@ -12,6 +12,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Speciality.Speciality_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Speciality.Speciality_name)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.DoctorName)
         </dt>
 
@@ -20,11 +28,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Specialization)
+            @Html.DisplayNameFor(model => model.DoctorId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Specialization)
+            @Html.DisplayFor(model => model.DoctorId)
         </dd>
 
         <dt>
@@ -51,8 +59,9 @@
         *@
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-success" /> |
-@*            @Html.ActionLink("Back to List", "Index", new { id = Model.Id })
-*@        </div>
+            @*            @Html.ActionLink("Back to List", "Index", new { id = Model.Id })
+            *@
+        </div>
     }
 </div>
 @if (Session["Role"].Equals("Admin"))

@@ -26,6 +26,8 @@ namespace LoginandRegisterMVC
                       "~/Content/bootstrap.css",
                       "~/Content/Customcss.css",
                       "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/Content/chosen").Include("~/Content/bootstrap-chosen.css"));
+            bundles.Add(new ScriptBundle("~/bundles/chosen").Include("~/Scripts/chosen.jquery"));
         }
     }
 }

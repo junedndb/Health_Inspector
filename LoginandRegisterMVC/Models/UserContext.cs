@@ -30,5 +30,7 @@ namespace LoginandRegisterMVC.Models
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<PatientRecord> patientRecords { get; set; }
         public DbSet<PatientTreatmentRecord> patientTreatmentRecords { get; set; }
+        public DbSet<Locality> Localities { get; set; }
+        public DbSet<Speciality> Specialities { get; set; }
     }
 }

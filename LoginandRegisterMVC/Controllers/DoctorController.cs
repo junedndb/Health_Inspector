@@ -72,10 +72,14 @@ namespace LoginandRegisterMVC.Controllers
         // GET: Doctor/Create
         public ActionResult Create(int? id)
         {
-            ViewBag.DoctorId = new SelectList(db.Users.Where(a=>a.UserId==id), "UserId", "UserId");
+            ViewBag.DoctorId = new SelectList(db.Users.Where(a => a.UserId == id), "UserId", "UserId");
             var check = (from a in db.Users where a.UserId == id select a).FirstOrDefault();
             Session["Role"] = check.Role;
             Session["Id"] = id;
+            ViewBag.Speciality = new SelectList(db.Specialities.ToList(), "Id", "Speciality_name");
+            var clinicname = from s in db.Clinics
+                             select new { Clinic_Id = s.Id, ClinicName = s.ClinicName };
+            ViewBag.c1 = new SelectList(clinicname, "ClinicName", "ClinicName");
 
             return View();
         }
@@ -84,17 +88,19 @@ namespace LoginandRegisterMVC.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-//        [ValidateAntiForgeryToken]
-        public ActionResult Create( DoctorDetail doctorDetail)
+        //        [ValidateAntiForgeryToken]
+        public ActionResult Create(FormCollection collection, DoctorDetail doctorDetail)
         {
-            if (ModelState.IsValid)
+
+            for (int i = 0; i < doctorDetail.NumberClinic.Count(); i++)
             {
-                db.DoctorDetails.Add(doctorDetail);
-                db.SaveChanges();
-                return RedirectToAction("Index","Doctor",new { id = doctorDetail.DoctorId});
+                doctorDetail.TotalClinic += "," + doctorDetail.NumberClinic[i];
             }
 
-            return View(doctorDetail);
+            var stj = doctorDetail.TotalClinic;
+            db.DoctorDetails.Add(doctorDetail);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Doctor", new { id = doctorDetail.DoctorId });
         }
 
         // GET: Doctor/Edit/5
@@ -103,6 +109,10 @@ namespace LoginandRegisterMVC.Controllers
             var check = (from a in db.Users where a.UserId == did select a).FirstOrDefault();
             Session["Role"] = check.Role;
             Session["Id"] = did;
+            ViewBag.Speciality = new SelectList(db.Specialities.ToList(), "Id", "Speciality_name");
+            var clinicname = from s in db.Clinics
+                             select new { Clinic_Id = s.Id, ClinicName = s.ClinicName };
+            ViewBag.c1 = new SelectList(clinicname, "ClinicName", "ClinicName");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -120,15 +130,19 @@ namespace LoginandRegisterMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
 //        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,DoctorName,Specialization,TotalClinic,Avalaibility")] DoctorDetail doctorDetail)
+        public ActionResult Edit(FormCollection collection, DoctorDetail doctorDetail)
         {
-            if (ModelState.IsValid)
+            for (int i = 0; i < doctorDetail.NumberClinic.Count(); i++)
             {
-                db.Entry(doctorDetail).State = EntityState.Modified;
+                doctorDetail.TotalClinic += "," + doctorDetail.NumberClinic[i];
+            }
+
+            var stj = doctorDetail.TotalClinic;
+            db.Entry(doctorDetail).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index","Doctor",new { id = doctorDetail.DoctorId});
-            }
-            return View(doctorDetail);
+            
+            
         }
 
         // GET: Doctor/Delete/5
@@ -142,11 +156,13 @@ namespace LoginandRegisterMVC.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             DoctorDetail doctorDetail = db.DoctorDetails.Find(id);
+            db.DoctorDetails.Remove(doctorDetail);
+            db.SaveChanges();
             if (doctorDetail == null)
             {
                 return HttpNotFound();
             }
-            return View(doctorDetail);
+            return RedirectToAction("Index", "Doctor", new { id = id });
         }
 
         // POST: Doctor/Delete/5
@@ -168,5 +184,8 @@ namespace LoginandRegisterMVC.Controllers
             }
             base.Dispose(disposing);
         }
+        
+        }
     }
-}
+    
+
