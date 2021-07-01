@@ -17,14 +17,12 @@ namespace LoginandRegisterMVC.Controllers
 
 
 
-        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
 
         [HttpGet]
-        [Authorize]
         public ActionResult ADD()
         {
             BMI bMI = new BMI();
@@ -32,7 +30,6 @@ namespace LoginandRegisterMVC.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public ActionResult ADD(BMI bMI)
         {
 
@@ -52,7 +49,6 @@ namespace LoginandRegisterMVC.Controllers
 
 
         [HttpGet]
-        [Authorize]
         public ActionResult DietRecommendation()
         {
             BMI bMI = new BMI();
@@ -60,7 +56,6 @@ namespace LoginandRegisterMVC.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public ActionResult DietRecommendation([Bind(Include = "Height,Weight")] BMI bMI)
         {
             DietRecommendation dietRecommendation = new DietRecommendation();
@@ -104,11 +99,10 @@ namespace LoginandRegisterMVC.Controllers
            
             
             dietRecommendation.UserId = (int)HttpContext.Session["Id"];
-            //(int)HttpContext.Session["Id"];
+  
 
             ViewBag.bMi = Math.Round(bMI.BMIResult, 2);
-            //string myVar = (int)HttpContext.Session["UserId"];
-            //dietRecommendation.UserId = (int)HttpContext.Session["UserId"];
+
 
             context.DietRecommendations.Add(dietRecommendation);
             context.SaveChanges();

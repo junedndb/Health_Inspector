@@ -1,0 +1,32 @@
+﻿@model IEnumerable<LoginandRegisterMVC.Models.FeedbackQuestion>
+
+@{
+    ViewBag.Title = "QuestionList";
+}
+
+<h2>Question List</h2>
+
+<p>
+    @Html.ActionLink("Add New Question", "AddQuestion")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Question)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Question)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "QuestionDelete", new { id = item.QuestionId })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -59,7 +59,7 @@ namespace LoginandRegisterMVC.Controllers
             return View(patientRecord);
         }
 
-        // GET: PatientRecords/Edit/5
+        //GET: PatientRecords/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)

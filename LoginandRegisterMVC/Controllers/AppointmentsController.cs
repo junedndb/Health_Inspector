@@ -109,13 +109,9 @@ namespace LoginandRegisterMVC.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-    //    [ValidateAntiForgeryToken]
         public ActionResult Create(Appointment appointment)
         {
-            /*            if (ModelState.IsValid)
-                        {
 
-            */
             var last = (from a in db.Appointments select a).OrderByDescending(a => a.AppointmentId).First().AppointmentId;
             var app = (from a in db.Appointments where a.AppointmentId == last select a).FirstOrDefault();
             app.DateOfAppointment = appointment.DateOfAppointment;
@@ -125,9 +121,7 @@ namespace LoginandRegisterMVC.Controllers
 
 
             return RedirectToAction("Index","Appointments",new { id = app.PatientId});
-/*            }
-*/
- //           return View(appointment);
+
         }
 
         // GET: Appointments/Edit/5
@@ -148,11 +142,8 @@ namespace LoginandRegisterMVC.Controllers
             return View(appointment);
         }
 
-        // POST: Appointments/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
-      //  [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "AppointmentId,ClinicName,DoctorName,DoctorId,ClinicCity,DateOfAppointment,PatientName,PatientId")] Appointment appointment)
         {
             if (ModelState.IsValid)
@@ -164,7 +155,6 @@ namespace LoginandRegisterMVC.Controllers
             return View(appointment);
         }
 
-        // GET: Appointments/Delete/5
         public ActionResult Delete(int? id,int?uid)
         {
             var das = (from a in db.Users where a.UserId == uid select a).FirstOrDefault();
@@ -184,7 +174,6 @@ namespace LoginandRegisterMVC.Controllers
 
         // POST: Appointments/Delete/5
         [HttpPost, ActionName("Delete")]
-       // [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int? id)
         {
             Appointment appointment = db.Appointments.Find(id);
