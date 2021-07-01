@@ -34,10 +34,13 @@ namespace LoginandRegisterMVC.Controllers
                 }
 
                 ViewBag.AName = name;
+                ViewBag.Message = "Record Not Found !";
             }
             /*            var data = (from a in db.Clinics
                                     select a).ToList();
             */
+            ViewBag.Locality = new SelectList(db.Localities.ToList(), "LocalityId", "Locality_name");
+            ViewBag.Speciality = new SelectList(db.Specialities.ToList(), "Id", "Speciality_name");
             return View();
 
             //            return View(db.Users.ToList());
@@ -48,7 +51,7 @@ namespace LoginandRegisterMVC.Controllers
 
             var data = (from a in db.Clinics
                         where a.Specialization == clinic.Specialization &&
-                        a.City == clinic.City
+                        a.LocalityId == clinic.LocalityId
                         select a).ToList();
 
             return View(data.ToList());

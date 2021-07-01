@@ -15,7 +15,7 @@
 
 @if (ViewBag.AName != null)
 {
-    
+
     foreach (var a in ViewBag.AName)
     {
         string span = (DateTime.Parse(a.DateOfAppointment) - DateTime.Today).TotalDays.ToString();
@@ -139,7 +139,6 @@ else
 
 
 
-
     <table class="table">
         <tr>
             <th>
@@ -152,11 +151,9 @@ else
                 @Html.DisplayNameFor(model => model.DoctorId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Facilities)
+                @Html.DisplayNameFor(model => model.Services)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClinicTiming)
-            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.City)
             </th>
@@ -177,11 +174,9 @@ else
                         @Html.DisplayFor(modelItem => item.DoctorId)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Facilities)
+                        @Html.DisplayFor(modelItem => item.Services)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ClinicTiming)
-                    </td>
+
                     <td>
                         @Html.DisplayFor(modelItem => item.City)
                     </td>
@@ -198,7 +193,7 @@ else
         }
         else
         {
-            <p>No Record Found</p>
+            @ViewBag.Message
         }
 
     </table>

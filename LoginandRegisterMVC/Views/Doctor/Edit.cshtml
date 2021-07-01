@@ -6,9 +6,10 @@
 
 <h2>Edit</h2>
 
+
 @using (Html.BeginForm())
 {
-    //   @Html.AntiForgeryToken()
+    //@Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         <h4>DoctorDetail</h4>
@@ -25,18 +26,26 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.DoctorId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DoctorId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DoctorId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.Specialization, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Specialization, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.Specialization, ViewBag.Speciality as SelectList, "--select--")
                 @Html.ValidationMessageFor(model => model.Specialization, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TotalClinic, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.NumberClinic, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TotalClinic, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TotalClinic, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.NumberClinic, ViewBag.c1 as MultiSelectList, "-select-", new { @class = "form-control chosen-company", multiple = "multiple" })
+                @Html.ValidationMessageFor(model => model.NumberClinic, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -50,7 +59,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-success" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -68,5 +77,13 @@ else
     <div>
         @Html.ActionLink("Back to List", "Index", new { id = Session["Id"] })
     </div>
+
+}
+@section Scripts{
+
+    @Scripts.Render("~/bundles/chosen");
+    <script type="text/javascript">$(function () {
+$(".chosen-company").chosen();
+});</script>
 
 }

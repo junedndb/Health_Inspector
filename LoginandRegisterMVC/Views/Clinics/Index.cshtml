@@ -33,17 +33,15 @@
             @Html.DisplayNameFor(model => model.DoctorId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Facilities)
+            @Html.DisplayNameFor(model => model.Services)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ClinicTiming)
+            @Html.DisplayNameFor(model => model.Specialization)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AddressFLine)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AddressSLine)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.City)
         </th>
@@ -53,49 +51,51 @@
         <th>
             @Html.DisplayNameFor(model => model.ZipCode)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocalityId)
+        </th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClinicName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DoctorName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DoctorId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Facilities)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClinicTiming)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AddressFLine)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AddressSLine)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ZipCode)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id, did = Session["Id"] }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id, did = Session["Id"] }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id, did = Session["Id"] })
-            </td>
-        </tr>
-    }
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ClinicName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DoctorName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DoctorId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Services)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Speciality.Speciality_name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AddressFLine)
+    </td>
+   
+    <td>
+        @Html.DisplayFor(modelItem => item.City)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.State)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ZipCode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Locality.Locality_name)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id, did = Session["Id"] }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id, did = Session["Id"] }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id, did = Session["Id"] })
+    </td>
+</tr>}
 
 </table>
 

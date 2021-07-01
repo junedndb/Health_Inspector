@@ -9,8 +9,8 @@ namespace LoginandRegisterMVC.Models
 {
     public class Clinic
     {
- //       [Required]
- //       [Display(Name = "Clinic Id")]
+        // [Required]
+        // [Display(Name = "Clinic Id")]
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
         public int Id { get; set; }
@@ -29,24 +29,20 @@ namespace LoginandRegisterMVC.Models
 
         [Required]
         [Display(Name = "Doctor Specialization")]
-        public string Specialization { get; set; }
-
+        public int? Specialization { get; set; }
+        [ForeignKey("Specialization")]
+        public virtual Speciality Speciality { get; set; }
 
         [Required]
         [Display(Name = "Clinic Facilities")]
-        public string Facilities { get; set; }
+        public string Services { get; set; }
 
-        [Required]
-        [Display(Name = "Clinic Time")]
-        public string ClinicTiming { get; set; }
 
         [Required]
         [Display(Name = "Address line 1")]
         public string AddressFLine { get; set; }
 
-        [Required]
-        [Display(Name = "Address line 2")]
-        public string AddressSLine { get; set; }
+       
 
         [Required]
         [Display(Name = "City")]
@@ -59,5 +55,11 @@ namespace LoginandRegisterMVC.Models
         [Required]
         [Display(Name = "Zip Code")]
         public string ZipCode { get; set; }
+
+        public int? LocalityId { get; set; }
+        [ForeignKey("LocalityId")]
+
+        public virtual Locality Locality { get; set; }
+
     }
 }

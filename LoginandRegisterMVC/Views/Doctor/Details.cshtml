@@ -11,6 +11,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Speciality.Speciality_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Speciality.Speciality_name)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.DoctorName)
         </dt>
 
@@ -19,11 +27,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Specialization)
+            @Html.DisplayNameFor(model => model.DoctorId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Specialization)
+            @Html.DisplayFor(model => model.DoctorId)
         </dd>
 
         <dt>
@@ -46,8 +54,8 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Session["Id"] }) |
-@*    @Html.ActionLink("Back to List", "Index", new { id = Model.Id })
-*@    @if (Session["Role"].Equals("Admin"))
+    @*    @Html.ActionLink("Back to List", "Index", new { id = Model.Id })
+    *@    @if (Session["Role"].Equals("Admin"))
     {
         <div>
             @Html.ActionLink("Back to List", "Index", new { id = Session["Id"] })

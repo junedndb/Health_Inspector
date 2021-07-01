@@ -9,8 +9,8 @@ namespace LoginandRegisterMVC.Models
 {
     public class DoctorDetail
     {
- //       [Required]
-//        [Display(Name = "DoctorId")]
+        // [Required]
+        // [Display(Name = "DoctorId")]
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
@@ -22,9 +22,9 @@ namespace LoginandRegisterMVC.Models
         [Display(Name = "Doctor Id")]
         public int DoctorId { get; set; }
 
-        [Required]
-        [Display(Name = "Specialization")]
-        public string Specialization { get; set; }
+        public int? Specialization { get; set; }
+        [ForeignKey("Specialization")]
+        public virtual Speciality Speciality { get; set; }
 
         [Required]
         [Display(Name = "Total Clininc")]
@@ -33,6 +33,8 @@ namespace LoginandRegisterMVC.Models
         [Required]
         [Display(Name = "Avalaibility")]
         public string Avalaibility { get; set; }
+
+        public string[] NumberClinic { get; set; }
 
     }
 }

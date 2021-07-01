@@ -8,6 +8,8 @@
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/Site.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <link href="~/Content/bootstrap-chosen.css" rel="stylesheet" />
 </head>
 <body style="background:url(~/img/book-4.jpg)">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -66,9 +68,12 @@
         <footer class="text-center">
             <p>&copy; @DateTime.Now.Year - Health Inspector All Rights Reserved</p>
         </footer>
+         
 
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
+        <script src="~/Scripts/chosen.jquery.js"></script>
+        <script src="~/Scripts/chosen.jquery.min.js"></script>
         @RenderSection("scripts", required: false)
 
 

@@ -223,7 +223,7 @@ namespace LoginandRegisterMVC.Controllers
                 DoctorName = record.DoctorName,
                 DoctorID = record.DoctorId,
                 AppointmentId = record.AppointmentId,
-                DoctorSpecialization = record.Specialization
+                DoctorSpecialization = record.Specialization.ToString()
             };
 
             db.patientRecords.Add(patient);

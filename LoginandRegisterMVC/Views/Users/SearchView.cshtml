@@ -2,69 +2,45 @@
 
 @using (Html.BeginForm("Index", "Users", FormMethod.Post))
 {
-    //   @Html.AntiForgeryToken()
+    // @Html.AntiForgeryToken()
 
 <div class="form-horizontal container-fluid">
     <h2 class="text-center text-danger">Search Doctor</h2>
     <hr />
 
 
+
     <div class="form-group">
         @Html.LabelFor(model => model.Specialization, htmlAttributes: new { @class = "control-label col-md-2" })
-
         <div class="col-md-10">
-            @*            @Html.EditorFor(model => model.ClinicName, new { htmlAttributes = new { @class = "form-control" } })
-            *@
-
-            @Html.DropDownListFor(model => model.Specialization, new List<SelectListItem>
-            {
-                new SelectListItem{Text="Family Physician",Value="Family Physician"},
-                new SelectListItem{Text="Internal Medicine Physician",Value="Internal Medicine Physician"},
-                new SelectListItem{Text="Pediatrician",Value="Pediatrician"},
-                new SelectListItem{Text="Obstetrician",Value="Obstetrician"},
-                new SelectListItem{Text="Surgeon",Value="Surgeon"},
-                new SelectListItem{Text="Psychiatrist",Value="Psychiatrist"},
-                new SelectListItem{Text="Cardiologist",Value="Cardiologist"},
-                new SelectListItem{Text="Dermatologist",Value="Dermatologist"},
-                new SelectListItem{Text="Endocrinologist",Value="Endocrinologist"},
-                new SelectListItem{Text="Gastroenterologist",Value="Gastroenterologist"},
-                new SelectListItem{Text="Infection Disease Physician",Value="Infection Disease Physician"},
-                new SelectListItem{Text="Nephorologist",Value="Nephorologist"},
-                new SelectListItem{Text="Opthalmogist",Value="Opthalmogist"},
-                new SelectListItem{Text="Pulmonologist",Value="Pulmonologist"},
-                new SelectListItem{Text="Neurologist",Value="Neurologist"},
-                new SelectListItem{Text="Physician Executive",Value="Physician Executive"}
-            }, "Select Role", htmlAttributes: new { @class = "form-control" })
+            @Html.DropDownListFor(model => model.Specialization, ViewBag.Speciality as SelectList, "--select--")
             @Html.ValidationMessageFor(model => model.Specialization, "", new { @class = "text-danger" })
-
-
-            @*            @Html.DropDownListFor(model => model.ClinicName, new List<SelectListItem>
-                {
-                    new SelectListItem{Text="Admin",Value="Admin"},
-                    new SelectListItem{Text="Patient",Value="Patient"},
-                    new SelectListItem{Text="Doctor",Value="Doctor"}
-                }, "Select Role", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ClinicName, "", new { @class = "text-danger" })
-            *@
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
-
+        @Html.LabelFor(model => model.LocalityId, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-
-            @Html.DropDownListFor(model => model.City, new List<SelectListItem>
-            {
-                new SelectListItem{Text="Shirpur",Value="Shirpur"},
-                new SelectListItem{Text="Nandurbar",Value="Nandurbar"},
-                new SelectListItem{Text="Pune",Value="Pune"}
-            }, "Select Role", htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
-
+            @Html.DropDownListFor(model => model.LocalityId, ViewBag.Locality as SelectList, "--select--")
+            @Html.ValidationMessageFor(model => model.LocalityId, "", new { @class = "text-danger" })
         </div>
     </div>
 
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+
+         <div class="col-md-10">
+
+         @Html.DropDownListFor(model => model.City, new List<SelectListItem>
+        {
+        new SelectListItem{Text="Shirpur",Value="Shirpur"},
+        new SelectListItem{Text="Nandurbar",Value="Nandurbar"},
+        new SelectListItem{Text="Pune",Value="Pune"}
+        }, "Select Role", htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+
+         </div>
+        </div>*@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
@@ -73,5 +49,4 @@
         </div>
     </div>
 
-</div>
-}
+</div>}

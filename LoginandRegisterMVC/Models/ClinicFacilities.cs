@@ -7,12 +7,16 @@ using System.Web;
 
 namespace LoginandRegisterMVC.Models
 {
-    public class ClinicFacilities
+    public  class ClinicFacilities
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+       
         public int Id { get; set; }
+        public string Service { get; set; }
 
-        public string FacilityName { get; set; }
+        public bool Isselected { get; set; }
+
+
 
     }
 }
