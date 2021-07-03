@@ -142,29 +142,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106181521213_initial.cs" />
-    <Compile Include="Migrations\202106181521213_initial.Designer.cs">
-      <DependentUpon>202106181521213_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202107010607588_a.cs" />
+    <Compile Include="Migrations\202107010607588_a.Designer.cs">
+      <DependentUpon>202107010607588_a.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106271233472_a.cs" />
-    <Compile Include="Migrations\202106271233472_a.Designer.cs">
-      <DependentUpon>202106271233472_a.cs</DependentUpon>
+    <Compile Include="Migrations\202107010646033_a1.cs" />
+    <Compile Include="Migrations\202107010646033_a1.Designer.cs">
+      <DependentUpon>202107010646033_a1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106291704374_FacLocSpec.cs" />
-    <Compile Include="Migrations\202106291704374_FacLocSpec.Designer.cs">
-      <DependentUpon>202106291704374_FacLocSpec.cs</DependentUpon>
+    <Compile Include="Migrations\202107010711011_a2.cs" />
+    <Compile Include="Migrations\202107010711011_a2.Designer.cs">
+      <DependentUpon>202107010711011_a2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106291804216_new.cs" />
-    <Compile Include="Migrations\202106291804216_new.Designer.cs">
-      <DependentUpon>202106291804216_new.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106291955389_dd.cs" />
-    <Compile Include="Migrations\202106291955389_dd.Designer.cs">
-      <DependentUpon>202106291955389_dd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106301333041_null.cs" />
-    <Compile Include="Migrations\202106301333041_null.Designer.cs">
-      <DependentUpon>202106301333041_null.cs</DependentUpon>
+    <Compile Include="Migrations\202107010836188_a3.cs" />
+    <Compile Include="Migrations\202107010836188_a3.Designer.cs">
+      <DependentUpon>202107010836188_a3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -369,7 +361,6 @@
     <Content Include="Views\Adminright\Create.cshtml" />
     <Content Include="Views\Adminright\Delete.cshtml" />
     <Content Include="Views\Adminright\Details.cshtml" />
-    <Content Include="Views\Adminright\Edit.cshtml" />
     <Content Include="Views\Adminright\Index.cshtml" />
     <Content Include="Views\Users\SearchView.cshtml" />
     <Content Include="Views\Appointments\Create.cshtml" />
@@ -400,9 +391,9 @@
     <Content Include="Views\PatientTreatmentRecords\Index.cshtml" />
     <Content Include="Views\Feedback\AddQuestion.cshtml" />
     <Content Include="Views\Feedback\QuestionList.cshtml" />
-    <Content Include="Views\Feedback\QuestionDelete.cshtml" />
-    <Content Include="Views\Feedback\QuestionsList.cshtml" />
     <Content Include="Views\Feedback\AddFeedback.cshtml" />
+    <Content Include="Views\Adminright\Edit.cshtml" />
+    <Content Include="Views\Help\Guide.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -417,23 +408,17 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106181521213_initial.resx">
-      <DependentUpon>202106181521213_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107010607588_a.resx">
+      <DependentUpon>202107010607588_a.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106271233472_a.resx">
-      <DependentUpon>202106271233472_a.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107010646033_a1.resx">
+      <DependentUpon>202107010646033_a1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106291704374_FacLocSpec.resx">
-      <DependentUpon>202106291704374_FacLocSpec.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107010711011_a2.resx">
+      <DependentUpon>202107010711011_a2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106291804216_new.resx">
-      <DependentUpon>202106291804216_new.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106291955389_dd.resx">
-      <DependentUpon>202106291955389_dd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106301333041_null.resx">
-      <DependentUpon>202106301333041_null.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107010836188_a3.resx">
+      <DependentUpon>202107010836188_a3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

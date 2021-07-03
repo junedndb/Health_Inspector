@@ -3,16 +3,16 @@ namespace LoginandRegisterMVC.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class _new : DbMigration
+    public partial class a1 : DbMigration
     {
         public override void Up()
         {
-            DropColumn("dbo.Clinics", "AddressSLine");
+            AddColumn("dbo.Appointments", "Completed", c => c.Boolean());
         }
         
         public override void Down()
         {
-            AddColumn("dbo.Clinics", "AddressSLine", c => c.String(nullable: false));
+            DropColumn("dbo.Appointments", "Completed");
         }
     }
 }

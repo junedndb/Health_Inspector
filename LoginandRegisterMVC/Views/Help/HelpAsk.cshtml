@@ -41,7 +41,13 @@
 }
 
 <div>
-    @Html.ActionLink("View Resolutions", "ViewResolutions", "Help")
+    <br />
+    <br />
+    @Html.ActionLink("View Resolutions", "ViewResolutions", "Help", htmlAttributes: new { @class = "btn btn-primary" })
+    <br />
+    <br />
+
+    @Html.ActionLink("User Guide", "Guide", "Help", htmlAttributes: new { @class = "btn btn-primary" })
 </div>
 <br />
 <hr />

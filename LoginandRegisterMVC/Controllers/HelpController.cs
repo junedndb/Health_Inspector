@@ -105,9 +105,13 @@ namespace LoginandRegisterMVC.Controllers
             return View(query);
         }
 
+        public ActionResult Guide()
+        {
+
+            return View();
+        }
 
 
-
-
+        
     }
 }

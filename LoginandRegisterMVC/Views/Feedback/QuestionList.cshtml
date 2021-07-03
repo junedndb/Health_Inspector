@@ -4,29 +4,30 @@
     ViewBag.Title = "QuestionList";
 }
 
-<h2>Question List</h2>
+<h2>QuestionList</h2>
 
 <p>
-    @Html.ActionLink("Add New Question", "AddQuestion")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Question)
+            @Html.DisplayNameFor(model => model.FeedBackQuestion)
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Question)
-            </td>
-            <td>
-                @Html.ActionLink("Delete", "QuestionDelete", new { id = item.QuestionId })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FeedBackQuestion)
+        </td>
+        <td>
+            @Html.ActionLink("AddFeedback", "AddFeedback", new { id=item.QuestionId }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.QuestionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.QuestionId })*@
+        </td>
+    </tr>
+}
 
 </table>

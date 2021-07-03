@@ -43,6 +43,17 @@
                 </div>
             </div>
         </div>
+
+        <br />
+        <br />
+        if (Session["RoleLogin"].Equals("Doctor"))
+        {
+            @Html.ActionLink("Home", "Index", "Doctor", new { id = Session["Id"] }, new { @class = "btn btn-primary" })
+        }
+        else
+        {
+            @Html.ActionLink("Home", "Index", "Users", new { id = Session["Id"] }, new { @class = "btn btn-primary" })
+        }
     }
 }
 else
@@ -62,6 +73,16 @@ else
                     </ul>
                 </h4>
             </div>
+            <br />
+            if (Session["RoleLogin"].Equals("Doctor"))
+            {
+                @Html.ActionLink("Home", "Index", "Doctor", new { id = Session["Id"] }, new { @class = "btn btn-primary" })
+            }
+            else
+            {
+                @Html.ActionLink("Home", "Index", "Users", new { id = Session["Id"] }, new { @class = "btn btn-primary" })
+            }
+
 
         }
     }

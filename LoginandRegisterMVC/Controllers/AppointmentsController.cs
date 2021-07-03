@@ -83,6 +83,7 @@ namespace LoginandRegisterMVC.Controllers
                 PatientName = udata.firstname +" "+udata.lastname,
                 PatientId = udata.UserId,
                 Status = "Pending",
+                Completed = false,
                 DateOfAppointment = "2021-06-05",
                 TimeOfAppointment = "10:10 am"
             };
@@ -194,6 +195,16 @@ namespace LoginandRegisterMVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index","Appointments",new { id= uid});
         }
+
+
+        public ActionResult IsCompleted(int? id, int? uid)
+        {
+            var approve = (from a in db.Appointments where a.AppointmentId == id select a).FirstOrDefault();
+            approve.Completed = true;
+            db.SaveChanges();
+            return RedirectToAction("Index", "Appointments", new { id = uid });
+        }
+
         public ActionResult PatientRecord(int? id, int? uid,PatientRecord patient)
         {
             var record = (from a in db.Users 

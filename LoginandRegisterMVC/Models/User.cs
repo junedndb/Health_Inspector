@@ -12,7 +12,7 @@ namespace LoginandRegisterMVC.Models
     public class User
     {
 
-//        [Required]
+//      [Required]
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
 

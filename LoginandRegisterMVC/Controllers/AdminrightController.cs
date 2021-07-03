@@ -61,39 +61,88 @@ namespace LoginandRegisterMVC.Controllers
             return View(user);
         }
 
-        // GET: Adminright/Edit/5
+        //// GET: Adminright/Edit/5
+        //[HttpGet]
+        //public ActionResult Edit(int id)
+        //{
+        //    //Session["Id"] = id;
+        //    //if (id == null)
+        //    //{
+        //    //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    //}
+        //    //User user = db.Users.Find(id);
+        //    //if (user == null)
+        //    //{
+        //    //    return HttpNotFound();
+        //    //}
+        //    var user = db.Users.Find(id);
+
+        //    return View(user);
+        //}
+
+        //// POST: Adminright/Edit/5
+        //// To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
+
+
+
+        //[HttpPost]
+        ////[ValidateAntiForgeryToken]
+        //public ActionResult Edit(User user)
+        //{
+        //    var UserInDb = db.Users.SingleOrDefault(m => m.UserId == user.UserId);
+    //        if (ModelState.IsValid)
+    //        {
+
+    //            UserInDb.MailId = user.MailId;
+    //            UserInDb.firstname = user.firstname;
+    //            UserInDb.lastname = user.lastname;
+    //            UserInDb.Username = user.Username;
+    //            UserInDb.Dob = user.Dob;
+    //            UserInDb.MNumber = user.MNumber;
+    //            UserInDb.Password = user.Password;
+    //            UserInDb.Role = user.Role;
+
+    //            ViewBag.msg = "User Record Updated!";
+
+
+    //            db.SaveChanges();
+    //            return RedirectToAction("Index");
+    //}
+    //    return View(user);
+    //}
+
+    // GET: Adminright/Delete/5
+
+        [HttpGet]
         public ActionResult Edit(int id)
         {
-            Session["Id"] = id;
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
+            var user = db.Users.Find(id);
             return View(user);
         }
 
-        // POST: Adminright/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-//        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserId,MailId,firstname,lastname,Username,Dob,MNumber,Password,Role")] User user)
+        public ActionResult Edit(User user)
         {
+            var UserInDb = db.Users.SingleOrDefault(m => m.UserId == user.UserId);
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
+
+                UserInDb.MailId = user.MailId;
+                UserInDb.firstname = user.firstname;
+                UserInDb.lastname = user.lastname;
+                UserInDb.Username = user.Username;
+                UserInDb.Dob = user.Dob;
+                UserInDb.MNumber = user.MNumber;
+                UserInDb.Password = user.Password;
+                UserInDb.Role = user.Role;
+                ViewBag.msg = "User Record Updated!";
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
             return View(user);
         }
 
-        // GET: Adminright/Delete/5
         public ActionResult Delete(int id)
         {
             Session["Id"] = id;
@@ -111,7 +160,7 @@ namespace LoginandRegisterMVC.Controllers
 
         // POST: Adminright/Delete/5
         [HttpPost, ActionName("Delete")]
-//        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
             User user = db.Users.Find(id);

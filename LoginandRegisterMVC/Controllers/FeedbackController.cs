@@ -11,8 +11,8 @@ namespace LoginandRegisterMVC.Controllers
     public class FeedbackController : Controller
     {
 
-        private UserContext context = new UserContext();
 
+        private UserContext context = new UserContext();
 
         [HttpGet]
         public ActionResult AddQuestion()
@@ -69,17 +69,26 @@ namespace LoginandRegisterMVC.Controllers
             FeedbackViewModel viewModel = new FeedbackViewModel
             {
                 Feedback = new Feedback(),
-                FeedbackQuestion = context.FeedbackQuestions.Where(m => m.QuestionId == id).FirstOrDefault()
+                FeedbackQuestion = context.FeedbackQuestions.SingleOrDefault(m => m.QuestionId == id),
             };
-            return View();
+            return View(viewModel);
         }
 
         [HttpPost]
         public ActionResult AddFeedback(FeedbackViewModel viewModel)
         {
-
+            viewModel.Feedback.UserId = (int)HttpContext.Session["Id"];
+            viewModel.Feedback.QuestionId = viewModel.FeedbackQuestion.QuestionId;
+            if (ModelState.IsValid)
+            {
+                ViewBag.msg = "Feedback Submitted!";
+                context.Feedbacks.Add(viewModel.Feedback);
+                context.SaveChanges();
+            }
             return View();
         }
+
+
 
     }
 }

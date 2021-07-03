@@ -10,6 +10,6 @@ namespace LoginandRegisterMVC.Models
     {
         [Key]
         public int QuestionId { get; set; }
-        public string Question { get; set; }
+        public string FeedBackQuestion { get; set; }
     }
 }

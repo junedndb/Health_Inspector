@@ -4,46 +4,67 @@
     ViewBag.Title = "AddFeedback";
 }
 
-<h2>Add Feedback</h2>
-
-@using (Html.BeginForm()) 
+@if (!IsPost)
 {
-    @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>Feedback</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <h2>AddFeedback</h2>
 
-    <div class="form-group">
-        @*@Html.LabelFor(model => model.FeedbackQuestion.FeedBackQuestion, htmlAttributes: new { @class = "control-label col-md-2" })*@
-        <div class="col-md-10">
-           @Html.DisplayFor(model => model.FeedbackQuestion.Question)
+
+    using (Html.BeginForm())
+    {
+        <div class="form-horizontal">
+            <h4>Feedback</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.QuestionId, "QuestionId", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("QuestionId", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.QuestionId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FeedbackQuestion.FeedBackQuestion, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DisplayFor(model => model.FeedbackQuestion.FeedBackQuestion, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FeedbackQuestion.FeedBackQuestion, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Feedback.Answer, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Feedback.Answer, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Feedback.Answer, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.HiddenFor(model => model.Feedback.UserId)
+                        @Html.HiddenFor(model => model.Feedback.QuestionId)
+                        @Html.HiddenFor(model => model.FeedbackQuestion.QuestionId)
+
+
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+
         </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "QuestionList")
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Feedback.Answer, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Feedback.Answer, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Feedback.Answer, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            @Html.HiddenFor(m => m.Feedback.QuestionId)
-            @Html.HiddenFor(m => m.Feedback.UserId)
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
+else
+{
+    <h3>@ViewBag.msg</h3>
+    @Html.ActionLink("Back to Question List", "QuestionList")
+}
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

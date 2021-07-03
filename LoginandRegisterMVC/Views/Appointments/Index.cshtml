@@ -42,7 +42,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Status)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Completed)
+        </th>
     </tr>
 
     @foreach (var item in Model)
@@ -75,6 +77,9 @@
     <td>
         @Html.DisplayFor(modelItem => item.Status)
     </td>
+    <td>
+       @Html.DisplayFor(modelItem => item.Completed)
+    </td>
 
 
 
@@ -85,8 +90,9 @@
         @Html.ActionLink("Details", "Details", new { id = item.AppointmentId, uid = Session["Id"] }) |
         @if (Session["Role"].Equals("Doctor"))
         {
-            @Html.ActionLink("Approve", "Approve", new { id = item.AppointmentId, uid = item.DoctorId })
 
+            @Html.ActionLink("Approve", "Approve", new { id = item.AppointmentId, uid = item.DoctorId }) <span>&nbsp</span>
+            @Html.ActionLink("IsCompleted?", "IsCompleted", new { id = item.AppointmentId, uid = item.DoctorId })
             var IsMatch = false;
 
             foreach (var i in ViewBag.check)

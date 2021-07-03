@@ -7,13 +7,13 @@ namespace LoginandRegisterMVC.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class _null : IMigrationMetadata
+    public sealed partial class a2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(_null));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(a2));
         
         string IMigrationMetadata.Id
         {
-            get { return "202106301333041_null"; }
+            get { return "202107010711011_a2"; }
         }
         
         string IMigrationMetadata.Source

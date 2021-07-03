@@ -51,5 +51,8 @@ namespace LoginandRegisterMVC.Models
 */        public int PatientId { get; set; }
 
         public string Status { get; set; }
+
+
+        public bool? Completed { get; set; }
     }
 }

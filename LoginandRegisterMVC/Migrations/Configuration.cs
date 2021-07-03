@@ -51,14 +51,16 @@ new Models.Locality() { Locality_name = "Nashik" },
 new Models.Locality() { Locality_name = "Delhi" }
 );
 
-            context.FeedbackQuestions.AddOrUpdate(l => l.QuestionId,
-           new Models.FeedbackQuestion() { FeedBackQuestion = "Are you Satisy with Treatment" },
-           new Models.FeedbackQuestion() { FeedBackQuestion = "How did you find the experience of booking appointments?" },
-           new Models.FeedbackQuestion() { FeedBackQuestion = "Were you satisfied with the doctor you were allocated with?" },
-           new Models.FeedbackQuestion() { FeedBackQuestion = "How easy is it to navigate our facility?" }
+            //            context.FeedbackQuestions.AddOrUpdate(l => l.QuestionId,
+            //           new Models.FeedbackQuestion() { FeedBackQuestion = "Are you Satisy with Treatment" },
+            //           new Models.FeedbackQuestion() { FeedBackQuestion = "How did you find the experience of booking appointments?" },
+            //           new Models.FeedbackQuestion() { FeedBackQuestion = "Were you satisfied with the doctor you were allocated with?" },
+            //           new Models.FeedbackQuestion() { FeedBackQuestion = "How easy is it to navigate our facility?" }
 
 
-);
+            //);
+            //
+           
         }
     }
 }

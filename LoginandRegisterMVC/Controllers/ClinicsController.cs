@@ -99,6 +99,15 @@ namespace LoginandRegisterMVC.Controllers
             db.Clinics.Add(clinic);
             db.SaveChanges();
             return RedirectToAction("Index", "Doctor", new { id = clinic.DoctorId });
+            //if (clinic.DoctorName == "Admin")
+            //{
+            //    return Content("OK");
+            //    //return View("Index", "Clinics");
+            //}
+            //else
+            //{
+            //    return RedirectToAction("Index", "Doctor", new { id = clinic.DoctorId });
+            //}
 
 
         }
