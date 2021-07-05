@@ -14,7 +14,7 @@ body {
 }
     /* Set padding to keep content from hitting the edges */
     .body-content {
-    max-width: 80%;
+    max-width: 94%;
     margin-top: 30px;
     background-color: rgba(236,239,241,1);
     border-radius: 10px;

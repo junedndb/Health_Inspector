@@ -7,373 +7,374 @@
 
 @model IEnumerable<LoginandRegisterMVC.Models.Clinic>
 
-    @{
-        ViewBag.Title = "Dashboard Home";
-        Layout = "~/Views/Shared/_Layout.cshtml";
+@{
+    ViewBag.Title = "Dashboard Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 
-    }
+}
 
-    @if (ViewBag.AName != null)
+@if (ViewBag.AName != null)
+{
+
+    foreach (var a in ViewBag.AName)
     {
-
-        foreach (var a in ViewBag.AName)
+        string span = (DateTime.Parse(a.DateOfAppointment) - DateTime.Today).TotalDays.ToString();
+        int check = Convert.ToInt32(span);
+        if (a.Status.Equals("Approve"))
         {
-            string span = (DateTime.Parse(a.DateOfAppointment) - DateTime.Today).TotalDays.ToString();
-            int check = Convert.ToInt32(span);
-            if (a.Status.Equals("Approve"))
+            if (check <= 5 && check > 0)
             {
-                if (check <= 5 && check > 0)
-                {
-                    <br>
-                    <div class="toast text-center" data-autohide="false">
-                        <div class="toast-body card bg-secondary text-white text-center">
-                            <h3>Appointment Reminder</h3>
-                            <p style="padding:5px;margin:5px">
-                                @check Days left to Dr.@a.DoctorName appointment
-                                <button type="button" class="ml-2 mb-1 close text-white" data-dismiss="toast">&times;</button>
-                            </p>
-                        </div>
+                <br>
+                <div class="toast text-center" data-autohide="false">
+                    <div class="toast-body card bg-secondary text-white text-center">
+                        <h3>Appointment Reminder</h3>
+                        <p style="padding:5px;margin:5px">
+                            @check Days left to Dr.@a.DoctorName appointment
+                            <button type="button" class="ml-2 mb-1 close text-white" data-dismiss="toast">&times;</button>
+                        </p>
                     </div>
-                }
+                </div>
             }
         }
     }
+}
 
 
 
-    @if (ViewBag.AName != null)
+@if (ViewBag.AName != null)
+{
+
+    foreach (var a in ViewBag.AName)
     {
 
-        foreach (var a in ViewBag.AName)
+        if (a.Completed.Equals(true))
         {
 
-            if (a.Completed.Equals(true))
             {
-               
-                {
-                    <br>
-                    <div class="toast text-center" data-autohide="false">
-                        <div class="toast-body card bg-secondary text-white text-center">
-                            <h3>Feedback Reminder</h3>
-                            <p style="padding:5px;margin:5px">
-                                Please provide feedback for Your Recent Appointment No @a.AppointmentId of Doctor Dr.@a.DoctorName
-                                @Html.ActionLink("Feedback", "QuestionList", "Feedback")
-                                <button type="button" class="ml-2 mb-1 close text-white" data-dismiss="toast">&times;</button>
-                            </p>
-                        </div>
+                <br>
+                <div class="toast text-center" data-autohide="false">
+                    <div class="toast-body card bg-secondary text-white text-center">
+                        <h3>Feedback Reminder</h3>
+                        <p style="padding:5px;margin:5px">
+                            Please provide feedback for Your Recent Appointment No @a.AppointmentId of Doctor Dr.@a.DoctorName
+                            @Html.ActionLink("Feedback", "QuestionList", "Feedback")
+                            <button type="button" class="ml-2 mb-1 close text-white" data-dismiss="toast">&times;</button>
+                        </p>
                     </div>
-                }
+                </div>
             }
         }
     }
-    <script>
-        $(document).ready(function () {
-            $('.toast').toast('show');
-        });
-    </script>
+}
+<script>
+    $(document).ready(function () {
+        $('.toast').toast('show');
+    });
+</script>
 
-    <br>
-    <center class="card bg-secondary text-white text-center" style="font-family:'Times New Roman'">
-        <h3 style="font-family:'Times New Roman'"><span id="helthtipTitle"></span></h3>
-        <h6><span id="helthtip"></span></h6>
-    </center>
-    <br>
-    <div class="w3-display-container w3-text-white">
+<br>
+<center class="card bg-secondary text-white text-center" style="font-family:'Times New Roman'">
+    <h3 style="font-family:'Times New Roman'"><span id="helthtipTitle"></span></h3>
+    <h6><span id="helthtip"></span></h6>
+</center>
+<br>
+<div class="w3-display-container w3-text-white">
+    <img src="~/img/hhc.jpg" alt="Sample Image" style="width:100%;  border-radius:10px;" />
+    <div class=" overlay ">
+        <div class="text">
+            <h2 class="w3-jumbo" style="font-family:'Times New Roman';"><b>Health Inspector</b></h2>
+        </div>
+    </div>
+</div>
+
+@*<div class="row">
         <img src="~/img/hhc.jpg" alt="Sample Image" style="width:100%;  border-radius:10px;" />
-        <div class=" overlay ">
-            <div class="text">
-                <h2 class="w3-jumbo" style="font-family:'Times New Roman';"><b>Health Inspector</b></h2>
-            </div>
+    </div>
+*@
+<br>
+<div class="">
+
+</div>
+@*Hello @Session["Role"]
+*@@*<div class="row">
+        <div class="col-md-4">
+            <img src="~/img/nature.jpg" alt="Sample Image" style="width:300px; height:300px; border-radius:10px;" />
+        </div>
+        <div class="col-md-4">
+            <img src="~/img/nature.jpg" alt="Sample Image" style="width:300px; height:300px; border-radius:10px;" />
+        </div>
+        <div class="col-md-4">
+            <img src="~/img/nature.jpg" alt="Sample Image" style="width:300px; height:300px; border-radius:10px;" />
         </div>
     </div>
+    <br>
+*@
 
-    @*<div class="row">
-            <img src="~/img/hhc.jpg" alt="Sample Image" style="width:100%;  border-radius:10px;" />
-        </div>
+@if (!IsPost)
+{
+    @Html.Partial("SearchView")
+
+}
+else
+{
+
+
+
+
+    @*@using (Html.BeginForm("Index", "Users", FormMethod.Post))
+        {
+            //   @Html.AntiForgeryToken()
+
+            <div class="form-horizontal container-fluid">
+                <h2 class="text-center text-danger">Search</h2>
+                <hr />
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClinicName, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ClinicName, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DoctorName, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DoctorName, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Facilities, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Facilities, new { htmlAttributes = new { @class = "form-control" } })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Search" class="btn btn-success" />
+
+                    </div>
+                </div>
+
+            </div>
     *@
-    <br>
-    <div class="">
-
-    </div>
-    @*Hello @Session["Role"]
-    *@@*<div class="row">
-            <div class="col-md-4">
-                <img src="~/img/nature.jpg" alt="Sample Image" style="width:300px; height:300px; border-radius:10px;" />
-            </div>
-            <div class="col-md-4">
-                <img src="~/img/nature.jpg" alt="Sample Image" style="width:300px; height:300px; border-radius:10px;" />
-            </div>
-            <div class="col-md-4">
-                <img src="~/img/nature.jpg" alt="Sample Image" style="width:300px; height:300px; border-radius:10px;" />
-            </div>
-        </div>
-        <br>
-    *@
-
-    @if (!IsPost)
-    {
-        @Html.Partial("SearchView")
-
-    }
-    else
-    {
 
 
 
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClinicName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Services)
+            </th>
 
-        @*@using (Html.BeginForm("Index", "Users", FormMethod.Post))
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th></th>
+        </tr>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
             {
-                //   @Html.AntiForgeryToken()
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClinicName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoctorName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoctorId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Services)
+                    </td>
 
-                <div class="form-horizontal container-fluid">
-                    <h2 class="text-center text-danger">Search</h2>
-                    <hr />
-
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.ClinicName, htmlAttributes: new { @class = "control-label col-md-2" })
-
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.ClinicName, new { htmlAttributes = new { @class = "form-control" } })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.DoctorName, htmlAttributes: new { @class = "control-label col-md-2" })
-
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.DoctorName, new { htmlAttributes = new { @class = "form-control" } })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Facilities, htmlAttributes: new { @class = "control-label col-md-2" })
-
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Facilities, new { htmlAttributes = new { @class = "form-control" } })
-
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Search" class="btn btn-success" />
-
-                        </div>
-                    </div>
-
-                </div>
-        *@
-
-
-
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.ClinicName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DoctorName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DoctorId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Services)
-                </th>
-
-                <th>
-                    @Html.DisplayNameFor(model => model.City)
-                </th>
-                <th></th>
-            </tr>
-            @if (Model != null)
-            {
-                foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ClinicName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DoctorName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DoctorId)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Services)
-                        </td>
-
-                        <td>
-                            @Html.DisplayFor(modelItem => item.City)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Book Appointment", "BookAppointment", "Appointments", new { did = item.DoctorId, uid = Session["Id"] }, null) |
-                        </td>
-                        @*<td>
-                                @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
-                                @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
-                                @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
-                            </td>*@
-                    </tr>
-                }
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Book Appointment", "BookAppointment", "Appointments", new { did = item.DoctorId, uid = Session["Id"] }, null) |
+                    </td>
+                    @*<td>
+                            @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
+                            @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
+                        </td>*@
+                </tr>
             }
-            else
-            {
-                @ViewBag.Message
-            }
+        }
+        else
+        {
+            @ViewBag.Message
+        }
 
-        </table>
+    </table>
 
-        <p>
-            @Html.ActionLink("Back to search", "Index")
-        </p>
-    }
-    @Html.ActionLink("My Appointment", "Index", "Appointments", new { id = Session["Id"] }, null) |
-    <br>
-    <br>
-
-
-
-    <div class="card  text-white text-center">
-        <table border="0" width="100%" cellspacing="0" cellpadding="0">
-            <tr>
-                <td width="100%">
-                    <script>
-
-                        var today_obj = new Date()
-                        var today_date = today_obj.getDate()
-
-                        var tips = new Array()
-                        var tiptitle = 'Health Tip of the Day'
-
-
-                        tips[1] = 'Adults who eat a little chocolate five times a week are thinner than those who eat it less frequently'
-                        tips[2] = 'Drinking green tea improves your working memory, which allows your brain to process multiple pieces of information at once.'
-                        tips[3] = 'Sitting 11 hours or more each day leads to an earlier death'
-                        tips[4] = 'Taking an antihistamine before bed can prevent dark under-eye circles in the morning (but think of it as an emergency beauty treatment, not a nightly routine).'
-                        tips[5] = 'The smell of sage can reduce sadness and anxiety.'
-                        tips[6] = 'Expressing gratitude boosts happiness and decreases depression (thank you for reading this!). '
-                        tips[7] = 'Mothers who remain active during pregnancy beget babies with more advanced cerebral activity.'
-                        tips[8] = 'Ginger is a natural antispasmotic compound, which means it helps reduce cramping, in addition to alleviating nausea and promote digestion.'
-                        tips[9] = 'Exercising when you’re young will improve your brain function when you’re older.'
-                        tips[10] = 'Eating foods high in lycopene—including tomatoes and tomato paste—can make you less susceptible to sunburn.'
-                        tips[11] = 'When you pee in the pool, chlorine mixes with the uric acid in your urine to form dangerous compounds that can adversly affect the lung and heart.'
-                        tips[12] = 'Reduce fat intake, cut down on sugar and opt for fruits and vegetables. This helps reduce cholesterol and blood pressure. Healthy food will also lead to better blood sugar control.'
-                        tips[13] = 'Avoid caffeine, alcohol, nicotine, and other chemicals that interfere with sleep. Equip your bedroom with a comfortable mattress and pillows. Sleep in a dark clean and quiet environment.'
-                        tips[14] = 'Meditation has been linked to a variety of health benefits. It has been linked to changes in metabolism, blood pressure, brain activation, and other bodily processes.'
-                        tips[15] = 'On any given day, your weight will fluctuate by 2 to 5 pounds—of water.'
-                        tips[16] = 'Eating chocolate makes your skin glow—its antioxidants improve blood and can help protect your skin against dullness-causing UV damage. '
-                        tips[17] = 'Getting sunlight exposure in the morning will help you weigh less.'
-                        tips[18] = 'Eating eggs can improve your reflexes; they contain an amino acid that helps us make quick, knee-jerk reactions.'
-                        tips[19] = 'Massaging your scars will help them fade more so than any oil or lotion. '
-                        tips[20] = ' Bananas relieve belly bloating.'
-                        tips[21] = 'Spending time outdoors in nature increases happiness.'
-                        tips[22] = 'Know the key nutritious healthy or ‘super’ foods and include them in your diet..'
-                        tips[23] = 'Stress can make allergy symptoms worse.'
-                        tips[24] = 'Caffeine fights headaches by constricting the dialated blood vessels responsible for pain and throbbing.'
-                        tips[25] = 'Eating oatmeal boosts seratonin, which calms your brain and improves your mood.'
-                        tips[26] = 'Health is the greatest gift, contentment the greatest wealth, faithfulness the best relationship.'
-                        tips[27] = 'But the real secret to lifelong good health is actually the opposite: Let your body take care of you.'
-                        tips[28] = 'Exercise can help you feel energized and improve your sleep and overall well being.'
-                        tips[29] = 'Start Your Day With H2O'
-                        tips[30] = 'Take vitamin D3 if you don’t get much sun exposure'
-                        tips[31] = 'Social relationships are incredibly important not only for your mental well-being but also your physical health.'
-
-                        document.getElementById("helthtipTitle").innerHTML = tiptitle;
-                        document.getElementById("helthtip").innerHTML = tips[today_date];
-
-                    </script>
-                </td>
-            </tr>
-        </table>
-    </div>
+    <p>
+        @Html.ActionLink("Back to search", "Index")
+    </p>
+}
+@Html.ActionLink("My Appointment", "Index", "Appointments", new { id = Session["Id"] }, null) |
+<br>
+@*@Html.ActionLink("My Treatment", "DetailsPatient", "Users", new { id = Session["patient"] }, null) |*@
+<br>
 
 
 
-    <!-- Topic Cards -->
-    <div id="cards_landscape_wrap-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+<div class="card  text-white text-center">
+    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+            <td width="100%">
+                <script>
 
-                    <a href="/Help/HelpAsk/" onclick="location.href=this.href+@Session["Id"];return false;">
-                        @*                    @Html.ActionLink("Help", "HelpAsk", "Help", new { id = Session["Id"] }, null)
-                        *@
-                        <div class="card-flyer">
-                            <div class="text-box">
-                                <div class="image-box">
-                                    @*                                <img src="https://cdn.pixabay.com/photo/2018/03/30/15/11/deer-3275594_960_720.jpg" alt="" />
-                                    *@                                <img src="~/img/help.jpg" alt="" />
-                                </div>
-                                <div class="text-container">
-                                    <h6>Help</h6>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                                </div>
+                    var today_obj = new Date()
+                    var today_date = today_obj.getDate()
+
+                    var tips = new Array()
+                    var tiptitle = 'Health Tip of the Day'
+
+
+                    tips[1] = 'Adults who eat a little chocolate five times a week are thinner than those who eat it less frequently'
+                    tips[2] = 'Drinking green tea improves your working memory, which allows your brain to process multiple pieces of information at once.'
+                    tips[3] = 'Sitting 11 hours or more each day leads to an earlier death'
+                    tips[4] = 'Taking an antihistamine before bed can prevent dark under-eye circles in the morning (but think of it as an emergency beauty treatment, not a nightly routine).'
+                    tips[5] = 'The smell of sage can reduce sadness and anxiety.'
+                    tips[6] = 'Expressing gratitude boosts happiness and decreases depression (thank you for reading this!). '
+                    tips[7] = 'Mothers who remain active during pregnancy beget babies with more advanced cerebral activity.'
+                    tips[8] = 'Ginger is a natural antispasmotic compound, which means it helps reduce cramping, in addition to alleviating nausea and promote digestion.'
+                    tips[9] = 'Exercising when you’re young will improve your brain function when you’re older.'
+                    tips[10] = 'Eating foods high in lycopene—including tomatoes and tomato paste—can make you less susceptible to sunburn.'
+                    tips[11] = 'When you pee in the pool, chlorine mixes with the uric acid in your urine to form dangerous compounds that can adversly affect the lung and heart.'
+                    tips[12] = 'Reduce fat intake, cut down on sugar and opt for fruits and vegetables. This helps reduce cholesterol and blood pressure. Healthy food will also lead to better blood sugar control.'
+                    tips[13] = 'Avoid caffeine, alcohol, nicotine, and other chemicals that interfere with sleep. Equip your bedroom with a comfortable mattress and pillows. Sleep in a dark clean and quiet environment.'
+                    tips[14] = 'Meditation has been linked to a variety of health benefits. It has been linked to changes in metabolism, blood pressure, brain activation, and other bodily processes.'
+                    tips[15] = 'On any given day, your weight will fluctuate by 2 to 5 pounds—of water.'
+                    tips[16] = 'Eating chocolate makes your skin glow—its antioxidants improve blood and can help protect your skin against dullness-causing UV damage. '
+                    tips[17] = 'Getting sunlight exposure in the morning will help you weigh less.'
+                    tips[18] = 'Eating eggs can improve your reflexes; they contain an amino acid that helps us make quick, knee-jerk reactions.'
+                    tips[19] = 'Massaging your scars will help them fade more so than any oil or lotion. '
+                    tips[20] = ' Bananas relieve belly bloating.'
+                    tips[21] = 'Spending time outdoors in nature increases happiness.'
+                    tips[22] = 'Know the key nutritious healthy or ‘super’ foods and include them in your diet..'
+                    tips[23] = 'Stress can make allergy symptoms worse.'
+                    tips[24] = 'Caffeine fights headaches by constricting the dialated blood vessels responsible for pain and throbbing.'
+                    tips[25] = 'Eating oatmeal boosts seratonin, which calms your brain and improves your mood.'
+                    tips[26] = 'Health is the greatest gift, contentment the greatest wealth, faithfulness the best relationship.'
+                    tips[27] = 'But the real secret to lifelong good health is actually the opposite: Let your body take care of you.'
+                    tips[28] = 'Exercise can help you feel energized and improve your sleep and overall well being.'
+                    tips[29] = 'Start Your Day With H2O'
+                    tips[30] = 'Take vitamin D3 if you don’t get much sun exposure'
+                    tips[31] = 'Social relationships are incredibly important not only for your mental well-being but also your physical health.'
+
+                    document.getElementById("helthtipTitle").innerHTML = tiptitle;
+                    document.getElementById("helthtip").innerHTML = tips[today_date];
+
+                </script>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+<!-- Topic Cards -->
+<div id="cards_landscape_wrap-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+                <a href="/Help/HelpAsk/" onclick="location.href=this.href+@Session["Id"];return false;">
+                    @*                    @Html.ActionLink("Help", "HelpAsk", "Help", new { id = Session["Id"] }, null)
+                    *@
+                    <div class="card-flyer">
+                        <div class="text-box">
+                            <div class="image-box">
+                                @*                                <img src="https://cdn.pixabay.com/photo/2018/03/30/15/11/deer-3275594_960_720.jpg" alt="" />
+                                *@                                <img src="~/img/help.jpg" alt="" />
+                            </div>
+                            <div class="text-container">
+                                <h6>Help</h6>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
                             </div>
                         </div>
-                    </a>
-                </div>
+                    </div>
+                </a>
+            </div>
 
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                    <a href="/BMIAndRecommendations/ADD/" onclick="location.href=this.href+@Session["Id"];return false;">
-                        <div class="card-flyer">
-                            <div class="text-box">
-                                <div class="image-box">
-                                    @*                                <img src="https://cdn.pixabay.com/photo/2018/04/09/19/55/low-poly-3305284_960_720.jpg" alt="" />
-                                    *@                                <img src="~/img/newspaper-3.jpg" alt="" />
-                                </div>
-                                <div class="text-container">
-                                    <h6>Get BMI</h6>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                                </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <a href="/BMIAndRecommendations/ADD/" onclick="location.href=this.href+@Session["Id"];return false;">
+                    <div class="card-flyer">
+                        <div class="text-box">
+                            <div class="image-box">
+                                @*                                <img src="https://cdn.pixabay.com/photo/2018/04/09/19/55/low-poly-3305284_960_720.jpg" alt="" />
+                                *@                                <img src="~/img/newspaper-3.jpg" alt="" />
+                            </div>
+                            <div class="text-container">
+                                <h6>Get BMI</h6>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
                             </div>
                         </div>
-                    </a>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                    <a href="/BMIAndRecommendations/DietRecommendation/" onclick="location.href=this.href+@Session["Id"];return false;">
-                        <div class="card-flyer">
-                            <div class="text-box">
-                                <div class="image-box">
-                                    @*                                <img src="https://cdn.pixabay.com/photo/2018/04/06/13/46/poly-3295856_960_720.png" alt="" />
-                                    *@                                <img src="~/img/diet.jpg" alt="Diet" />
-                                </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <a href="/BMIAndRecommendations/DietRecommendation/" onclick="location.href=this.href+@Session["Id"];return false;">
+                    <div class="card-flyer">
+                        <div class="text-box">
+                            <div class="image-box">
+                                @*                                <img src="https://cdn.pixabay.com/photo/2018/04/06/13/46/poly-3295856_960_720.png" alt="" />
+                                *@                                <img src="~/img/diet.jpg" alt="Diet" />
+                            </div>
 
-                                <div class="text-container">
-                                    <h6>Get Diet Recommendation</h6>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                                </div>
+                            <div class="text-container">
+                                <h6>Get Diet Recommendation</h6>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
                             </div>
                         </div>
-                    </a>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                    <a href="">
-                        <div class="card-flyer">
-                            <div class="text-box">
-                                <div class="image-box">
-                                    <img src="~/img/feedback.jpg" alt="" />
-                                    @*                                <img src="https://cdn.pixabay.com/photo/2018/03/30/15/12/dog-3275593_960_720.jpg" alt="" />
-                                    *@
-                                </div>
-                                <div class="text-container">
-                                    <h6>Give FeedBack</h6>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                                </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <a href="">
+                    <div class="card-flyer">
+                        <div class="text-box">
+                            <div class="image-box">
+                                <img src="~/img/feedback.jpg" alt="" />
+                                @*                                <img src="https://cdn.pixabay.com/photo/2018/03/30/15/12/dog-3275593_960_720.jpg" alt="" />
+                                *@
+                            </div>
+                            <div class="text-container">
+                                <h6>Give FeedBack</h6>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
                             </div>
                         </div>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
+</div>
 
 
 
 
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 
 
-    }
+}

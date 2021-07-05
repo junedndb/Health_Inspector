@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace LoginandRegisterMVC.Controllers
 {
-
+   
 
     public class BMIAndRecommendationsController : Controller
     {

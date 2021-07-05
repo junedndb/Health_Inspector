@@ -26,6 +26,10 @@ namespace LoginandRegisterMVC.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            //context.Users.AddOrUpdate(l => l.UserId,
+            //    new Models.User() {MailId = "Admin@gmail.com",firstname="Admin",lastname="Admin",Gender = "Male",Username="Admin@123",MNumber= "912736737",Password="Admin@123",Role="Admin",Fque="6",Sque="67",Tque="1880"}
+            //    );
             context.ClinicFacilitiess.AddOrUpdate(l => l.Id,
                  new Models.ClinicFacilities() { Service = "OPD" },
                  new Models.ClinicFacilities() { Service = "Dental Facility" },
@@ -51,16 +55,16 @@ new Models.Locality() { Locality_name = "Nashik" },
 new Models.Locality() { Locality_name = "Delhi" }
 );
 
-            //            context.FeedbackQuestions.AddOrUpdate(l => l.QuestionId,
-            //           new Models.FeedbackQuestion() { FeedBackQuestion = "Are you Satisy with Treatment" },
-            //           new Models.FeedbackQuestion() { FeedBackQuestion = "How did you find the experience of booking appointments?" },
-            //           new Models.FeedbackQuestion() { FeedBackQuestion = "Were you satisfied with the doctor you were allocated with?" },
-            //           new Models.FeedbackQuestion() { FeedBackQuestion = "How easy is it to navigate our facility?" }
+            context.FeedbackQuestions.AddOrUpdate(l => l.QuestionId,
+           new Models.FeedbackQuestion() { FeedBackQuestion = "Are you Satisy with Treatment" },
+           new Models.FeedbackQuestion() { FeedBackQuestion = "How did you find the experience of booking appointments?" },
+           new Models.FeedbackQuestion() { FeedBackQuestion = "Were you satisfied with the doctor you were allocated with?" },
+           new Models.FeedbackQuestion() { FeedBackQuestion = "How easy is it to navigate our facility?" }
 
 
-            //);
-            //
-           
+);
+
+
         }
     }
 }

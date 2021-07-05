@@ -3,7 +3,7 @@ namespace LoginandRegisterMVC.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class a : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -21,6 +21,7 @@ namespace LoginandRegisterMVC.Migrations
                         PatientName = c.String(),
                         PatientId = c.Int(nullable: false),
                         Status = c.String(),
+                        Completed = c.Boolean(),
                     })
                 .PrimaryKey(t => t.AppointmentId);
             

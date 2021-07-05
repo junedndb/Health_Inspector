@@ -90,7 +90,7 @@
     *@
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="TakeAppointment" class="btn btn-primary" />
+            <input type="submit" value="TakeAppointment" class="btn btn-primary" onclick="myFunction()"/>
         </div>
     </div>
 </div>
@@ -99,6 +99,12 @@
 <div>
     @Html.ActionLink("Back to Main Page", "Index","Users")
 </div>
+
+<script>
+    function myFunction() {
+        alert("Appointment Booked Successfully !!");
+    }
+</script>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -46,10 +46,10 @@
                         <li class="navbar-right nav-item">@Html.ActionLink("Logout", "Logout", "Users", null, new { @class = "nav-link" })</li>
                     }
                     else if (Session["RoleLogin"].Equals("Admin"))
-                    {
+                    { 
                         <li class="nav-item ">@Html.ActionLink("User Details", "Index", "Adminright", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
                         <li class="navbar-right nav-item">@Html.ActionLink("Help Requests", "HelpRequests", "Help", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
-                        <li class="nav-item ">@Html.ActionLink("Doctor Details", "Index", "Doctor", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
+                        @*<li class="nav-item ">@Html.ActionLink("Doctor Details", "Index", "Doctor", new { id = Session["Id"] }, new { @class = "nav-link" })</li>*@
                         <li class="nav-item ">@Html.ActionLink("Clinic Details", "Index", "Clinics", new { id = Session["Id"] }, new { @class = "nav-link" })</li>
                         <li class="navbar-right nav-item">@Html.ActionLink("Logout", "Logout", "Users", null, new { @class = "nav-link" })</li>
                     }

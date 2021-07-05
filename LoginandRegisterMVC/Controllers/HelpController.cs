@@ -8,6 +8,7 @@ using LoginandRegisterMVC.ViewModels;
 
 namespace LoginandRegisterMVC.Controllers
 {
+    
     public class HelpController : Controller
     {
         private UserContext context = new UserContext();

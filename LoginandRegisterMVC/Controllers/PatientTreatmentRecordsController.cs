@@ -40,6 +40,7 @@ namespace LoginandRegisterMVC.Controllers
         public ActionResult Create(int? paid, string pname, int? did)
         {
             ViewBag.Id = db.Appointments.Where(a => a.AppointmentId == paid).Select(a => a.PatientId).FirstOrDefault();
+           // Session["tId"] = ViewBag.Id;
             ViewBag.Name = pname;
             ViewBag.did = did;
             return View();
@@ -52,6 +53,8 @@ namespace LoginandRegisterMVC.Controllers
 //        [ValidateAntiForgeryToken]
         public ActionResult Create(PatientTreatmentRecord patientTreatmentRecord)
         {
+          //  int se = db.patientTreatmentRecords.Select(a => a.Id).FirstOrDefault();
+         //   Session["patient"] = se;
             if (ModelState.IsValid)
             {
                 db.patientTreatmentRecords.Add(patientTreatmentRecord);

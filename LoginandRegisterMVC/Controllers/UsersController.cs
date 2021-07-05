@@ -182,5 +182,11 @@ namespace LoginandRegisterMVC.Controllers
             }
             return View();
         }
+
+        //public ActionResult DetailsPatient(int id )
+        //{
+        //    var patient = db.patientTreatmentRecords.Find(id);
+        //    return View();
+        //}
     }
 }

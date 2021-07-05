@@ -67,6 +67,7 @@ namespace LoginandRegisterMVC.Controllers
             //ViewBag.DoctorName = (from a in db.DoctorDetails where a.DoctorId == id select a.DoctorName).FirstOrDefault();
             //ViewBag.Facility = db.ClinicFacilitiess.ToList();
             ViewBag.DoctorId = (from a in db.DoctorDetails where a.DoctorId == id select a.DoctorId).FirstOrDefault();
+           // ViewBag.AdminId = (from a in db.DoctorDetails where a.DoctorId == id select a.DoctorId).FirstOrDefault();
             ViewBag.DoctorName = (from a in db.DoctorDetails where a.DoctorId == id select a.DoctorName).FirstOrDefault();
             ViewBag.Facility = db.ClinicFacilitiess.ToList();
             ViewBag.Locality = new SelectList(db.Localities.ToList(), "LocalityId", "Locality_name");
@@ -98,6 +99,14 @@ namespace LoginandRegisterMVC.Controllers
             clinic.Services = facility;
             db.Clinics.Add(clinic);
             db.SaveChanges();
+            ViewBag.msg = "Clinic Record Updated!";
+            if (clinic.DoctorId == 0)
+            {
+                //return View(clinic);
+               return RedirectToAction("Index", "Adminright", new { id = 2 });
+
+            }
+            else
             return RedirectToAction("Index", "Doctor", new { id = clinic.DoctorId });
             //if (clinic.DoctorName == "Admin")
             //{
@@ -143,9 +152,15 @@ namespace LoginandRegisterMVC.Controllers
             
                 string facility = collection["facility"];
                 clinic.Services = facility;
-            db.Entry(clinic).State = EntityState.Modified;
-            db.SaveChanges();
-                return RedirectToAction("Index", "Clinics", new { id = clinic.DoctorId});
+                db.Entry(clinic).State = EntityState.Modified;
+                db.SaveChanges();
+                
+            if (clinic.DoctorId == 0)
+            {
+                return RedirectToAction("Index", "Adminright", new { id = 2 });
+
+            }
+            return RedirectToAction("Index", "Clinics", new { id = clinic.DoctorId});
            
         }
 

@@ -40,7 +40,9 @@ namespace LoginandRegisterMVC.Controllers
 
         // GET: Adminright/Create
         public ActionResult Create()
-        {
+        { 
+
+
             return View();
         }
 
@@ -49,16 +51,15 @@ namespace LoginandRegisterMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
 //        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserId,MailId,firstname,lastname,Username,Dob,MNumber,Password,Role")] User user)
+        public ActionResult Create(User user)
         {
-            if (ModelState.IsValid)
-            {
+          
                 db.Users.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
+            
 
-            return View(user);
+            
         }
 
         //// GET: Adminright/Edit/5
@@ -160,8 +161,8 @@ namespace LoginandRegisterMVC.Controllers
 
         // POST: Adminright/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+       
+        public ActionResult DeleteConfirmed(int id)
         {
             User user = db.Users.Find(id);
             db.Users.Remove(user);

@@ -44,6 +44,7 @@ namespace LoginandRegisterMVC.Controllers
             }
             else if (check.Role.Equals("Doctor"))
             {
+
                 return View(uid.ToList());
             }
             return View();

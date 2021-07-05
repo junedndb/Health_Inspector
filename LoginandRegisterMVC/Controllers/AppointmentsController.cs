@@ -10,6 +10,7 @@ using LoginandRegisterMVC.Models;
 
 namespace LoginandRegisterMVC.Controllers
 {
+    [Authorize]
     public class AppointmentsController : Controller
     {
         private UserContext db = new UserContext();
@@ -212,7 +213,7 @@ namespace LoginandRegisterMVC.Controllers
                           join c in db.DoctorDetails on b.DoctorId equals c.DoctorId
                           where b.AppointmentId == id 
                           select new { a.Dob,a.Gender,
-                          b.PatientName,b.DateOfAppointment,b.DoctorName,b.DoctorId,b.AppointmentId,c.Specialization}).FirstOrDefault();
+                          b.PatientName,b.DateOfAppointment,b.DoctorName,b.DoctorId,b.AppointmentId,c.Speciality}).FirstOrDefault();
 
             patient = new PatientRecord()
             {
@@ -223,7 +224,7 @@ namespace LoginandRegisterMVC.Controllers
                 DoctorName = record.DoctorName,
                 DoctorID = record.DoctorId,
                 AppointmentId = record.AppointmentId,
-                DoctorSpecialization = record.Specialization.ToString()
+                DoctorSpecialization = record.Speciality.Speciality_name
             };
 
             db.patientRecords.Add(patient);

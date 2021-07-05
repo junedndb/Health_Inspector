@@ -142,21 +142,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202107010607588_a.cs" />
-    <Compile Include="Migrations\202107010607588_a.Designer.cs">
-      <DependentUpon>202107010607588_a.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107010646033_a1.cs" />
-    <Compile Include="Migrations\202107010646033_a1.Designer.cs">
-      <DependentUpon>202107010646033_a1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107010711011_a2.cs" />
-    <Compile Include="Migrations\202107010711011_a2.Designer.cs">
-      <DependentUpon>202107010711011_a2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107010836188_a3.cs" />
-    <Compile Include="Migrations\202107010836188_a3.Designer.cs">
-      <DependentUpon>202107010836188_a3.cs</DependentUpon>
+    <Compile Include="Migrations\202107041033046_initial.cs" />
+    <Compile Include="Migrations\202107041033046_initial.Designer.cs">
+      <DependentUpon>202107041033046_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -394,6 +382,7 @@
     <Content Include="Views\Feedback\AddFeedback.cshtml" />
     <Content Include="Views\Adminright\Edit.cshtml" />
     <Content Include="Views\Help\Guide.cshtml" />
+    <Content Include="Views\Users\DetailsPatient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -408,17 +397,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202107010607588_a.resx">
-      <DependentUpon>202107010607588_a.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107010646033_a1.resx">
-      <DependentUpon>202107010646033_a1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107010711011_a2.resx">
-      <DependentUpon>202107010711011_a2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107010836188_a3.resx">
-      <DependentUpon>202107010836188_a3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107041033046_initial.resx">
+      <DependentUpon>202107041033046_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
